@@ -14,6 +14,7 @@
           <a href="index.html">Home</a>
           <a href="portfolio.html">Portfolios</a>
           <a href="blog.html">Blogs</a>
+          <a href="spotlight.html">Spotlight</a>
           <a href="community.html">Community</a>
         </div>
         <div class="auth-buttons">
@@ -38,21 +39,52 @@
         <h2 class="section-title">Featured Portfolios</h2>
         <div class="grid">
           <div class="card">
-            <img src="/api/placeholder/250/200" alt="Portfolio 1" />
+            <img src="/images/africanfood.jpg" alt="Ghana food" />
             <h3>James Cantamantu-Koomson</h3>
-            <p>Project Description</p>
+            <p class="portfolio-title">
+              Culinary Collection: <span>"A Taste of Ghana"</span>
+            </p>
+            <p>
+              This portfolio showcases a series of culinary photographs and
+              recipes that celebrate traditional Ghanaian dishes...
+            </p>
             <a href="#">View Full Portfolio</a>
           </div>
           <div class="card">
-            <img src="/api/placeholder/250/200" alt="Portfolio 2" />
+            <img src="/images/nature.jpg" alt="photo" />
             <h3>Griselda Owusu-Ansah</h3>
-            <p>Project Description</p>
+            <p class="portfolio-title">
+              Photography Album: <span>"Captured Moments"</span>
+            </p>
+            <p>
+              An album filled with photographs that tell stories of everyday
+              life and special moments. This collection highlights portraits,
+              street photography, and nature shots...
+            </p>
             <a href="#">View Full Portfolio</a>
           </div>
           <div class="card">
-            <img src="/api/placeholder/250/200" alt="Portfolio 3" />
+            <img src="/images/stories.jpg" alt="stories" />
             <h3>Princess Cheryl</h3>
-            <p>Project Description</p>
+            <p class="portfolio-title">
+              Short Stories: <span>"Tales of the Motherland"</span>
+            </p>
+            <p>
+              A collection of short stories that celebrate African culture,
+              traditions, and folklore. Each tale is inspired by...
+            </p>
+            <a href="#">View Full Portfolio</a>
+          </div>
+          <div class="card">
+            <img src="/images/beats.jpg" alt="stories" />
+            <h3>DJ Paa</h3>
+            <p class="portfolio-title">
+              Sound Beats: <span>"Rhythms of the Future"</span>
+            </p>
+            <p>
+              A collection of original sound beats blending Afrobeat, hip-hop,
+              and electronic elements. Each track is designed to...
+            </p>
             <a href="#">View Full Portfolio</a>
           </div>
         </div>
@@ -102,6 +134,62 @@
               in their respective fields but also dedicated...
             </p>
             <a href="#">Read More</a>
+          </div>
+        </div>
+        <div class="view-more">
+          <button class="view-more-button">View More</button>
+        </div>
+      </div>
+    </section>
+
+    <!--SPOTLIGHT SECTION - where individual works are displayed and can be filtereds-->
+    <section class="spotlight">
+      <div class="container">
+        <div class="spotlight-header">
+          <h2>Creative Spotlight</h2>
+          <p>Explore the creativity of Ashesi student</p>
+        </div>
+        <div class="spotlight-controls">
+          <div class="spotlight-filter">
+            <select>
+              <option value="">All Categories</option>
+              <option value="graphic-design">Graphic Design</option>
+              <option value="music">Music</option>
+              <option value="photography">Photography</option>
+              <option value="novel">Novel</option>
+              <option value="painting">Painting</option>
+              <option value="Writing">Poem / Spoken Word</option>
+            </select>
+          </div>
+          <div class="spotlight-search">
+            <input type="text" placeholder="Search works or authors" />
+            <button>Search</button>
+          </div>
+        </div>
+        <div class="spotlight-grid">
+          <div class="spotlight-item">
+            <img src="/images/sunset.jpg" alt="sunset" />
+            <div class="spotlight-item-content">
+              <h3>Sunset Serenity</h3>
+              <p>By Princess Cheryl</p>
+              <a href="#">View Details</a>
+            </div>
+          </div>
+          <div class="spotlight-item">
+            <img src="/images/music.jpg" alt="music" />
+            <div class="spotlight-item-content">
+              <h3>Whispers of the Heart</h3>
+              <p>By Griselda Owusu-Ansah</p>
+              <a href="#">View Details</a>
+            </div>
+          </div>
+          <div class="spotlight-item">
+            <img src="/images/poem.jpg" alt="Artwork 4" />
+            <div class="spotlight-item-content">
+              <h3>Compelling Writing Piece</h3>
+              <p>Author: James Cantamantu-Koomson</p>
+              <a href="#">View Details</a>
+            </div>
           </div>
         </div>
         <div class="view-more">
