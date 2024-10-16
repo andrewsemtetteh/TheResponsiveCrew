@@ -4,6 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
+    <link rel="stylesheet" href="/styles/authentication.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <select id="yearGroup" required>
+          <option value="">Select Year Group</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
+          <option value="2031">2031</option>
+          <option value="2032">2032</option>
+          <option value="2033">2033</option>
+          <option value="2034">2034</option>
+        </select>
+        <select id="expertise" required>
+          <option value="">Select Expertise</option>
+          <option value="graphic_design">Graphic Design</option>
+          <option value="web_development">Web Development</option>
+          <option value="photography">Photography</option>
+          <option value="videography">Videography</option>
+          <option value="writing">Writing</option>
+          <option value="music_production">Music Production</option>
+          <option value="illustration">Illustration</option>
+          <option value="ui_ux_design">UI/UX Design</option>
+          <option value="3d_modeling">3D Modeling</option>
+          <option value="animation">Animation</option>
+        </select>
+        <textarea
+          id="description"
+          placeholder="Tell us about yourself and your creative journey"
+          rows="4"
+          required
+        ></textarea>
+        <input type="file" id="profilePicture" accept="image/*" />
+        <div class="terms-checkbox">
+          <input type="checkbox" id="terms" required />
+          <label for="terms">I agree to the Terms and Conditions</label>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <div class="links">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
