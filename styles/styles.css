@@ -64,6 +64,11 @@ header {
   padding: 2rem 0;
 }
 
+.theme {
+  cursor: pointer;
+  font-size: larger;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -74,6 +79,7 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .logo span {
