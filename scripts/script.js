@@ -1,11 +1,11 @@
 // Login button click
 document.getElementById("login-btn").addEventListener("click", function () {
-  window.location.href = "login.html";
+  window.location.href = "/pages/login.html";
 });
 
 // Register button click
 document.getElementById("register-btn").addEventListener("click", function () {
-  window.location.href = "register.html";
+  window.location.href = "/pages/register.html";
 });
 
 // Newsletter form submission handler
