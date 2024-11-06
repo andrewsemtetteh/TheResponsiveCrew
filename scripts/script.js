@@ -52,3 +52,11 @@ document
   .addEventListener("click", function () {
     window.location.href = "/pages/createblog.html";
   });
+
+//when the create new post is clicked
+
+document
+  .getElementsByClassName("create-newpost-btn")
+  .addEventListener("click", function () {
+    window.location.href = "/pages/createpost.hmtl";
+  });
