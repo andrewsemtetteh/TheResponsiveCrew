@@ -1,18 +1,260 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Spotlight Container Styles */
+.spotlight-container {
+  padding: 2rem 0;
 }
 
-body {
-  color: aliceblue;
-  background-color: var(--bg-color);
-  line-height: 1.6;
+.spotlight-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-section {
-  height: 100vh;
+.spotlight-header h1 {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.spotlight-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+}
+
+.search-bar button {
+  padding: 0.75rem 1rem;
+  background-color: var(--btn-primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.filter-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-options select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Gallery Item */
+.gallery-item {
+  background: var(--bg-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.media-container {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+}
+
+.media-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Type Overlays */
+.play-overlay,
+.audio-overlay,
+.model-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.play-overlay i,
+.audio-overlay i,
+.model-overlay i {
+  font-size: 3rem;
+  color: white;
+  opacity: 0.8;
+}
+
+/* Gallery Item Info */
+.gallery-item-info {
+  padding: 1.5rem;
+}
+
+.media-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.media-badge.video {
+  background-color: #e74c3c;
+}
+.media-badge.image {
+  background-color: #3498db;
+}
+.media-badge.audio {
+  background-color: #9b59b6;
+}
+.media-badge.model {
+  background-color: #2ecc71;
+}
+.media-badge.design {
+  background-color: #f39c12;
+}
+
+.gallery-item-info h3 {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Creator Info */
+.creator-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.creator-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.creator-info span {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Item Stats */
+.item-stats {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.item-stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.item-stats i {
+  font-size: 1.1rem;
+}
+
+/* Load More Button */
+.load-more {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.load-more button {
+  padding: 0.75rem 2rem;
+  background-color: var(--btn-primary);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.load-more button:hover {
+  background-color: var(--bg-accent);
+}
+
+/* Create Post Button */
+.create-newpost-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--btn-primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.create-newpost-btn:hover {
+  background-color: var(--bg-accent);
+}
+
+.create-newpost-btn i {
+  font-size: 1.2rem;
+}
+
+/* Update filter section to accommodate new button */
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }

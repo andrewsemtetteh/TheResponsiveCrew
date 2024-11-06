@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Blog Post - Talent Sphere</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/createblog.css" />
+    <link rel="icon" href="/images/icon.png" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Talent <span>Sphere</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/portfolio.html">Portfolios</a>
+          <a href="/pages/blog.html">Blogs</a>
+          <a href="/pages/spotlight.html">Spotlight</a>
+        </div>
+        <div class="theme">
+          <i class="bx bx-moon"></i>
+        </div>
+        <div class="auth-buttons">
+          <button id="login-btn">Login</button>
+          <button id="register-btn">Register</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="blog-form-container">
+        <h1>Create New Blog Post</h1>
+        <form id="blogPostForm" class="blog-form">
+          <div class="form-group">
+            <label for="blogTitle">Blog Title</label>
+            <input
+              type="text"
+              id="blogTitle"
+              name="blogTitle"
+              required
+              placeholder="Enter your blog title"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="blogCategory">Category</label>
+            <select id="blogCategory" name="blogCategory" required>
+              <option value="">Select a category</option>
+              <option value="technology">Technology</option>
+              <option value="design">Design</option>
+              <option value="development">Development</option>
+              <option value="career">Career</option>
+              <option value="lifestyle">Lifestyle</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="blogThumbnail">Blog Thumbnail</label>
+            <div class="file-upload">
+              <input
+                type="file"
+                id="blogThumbnail"
+                name="blogThumbnail"
+                accept="image/*"
+              />
+              <label for="blogThumbnail" class="file-upload-label">
+                <i class="bx bx-upload"></i>
+                Choose Image
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="blogSummary">Brief Summary</label>
+            <textarea
+              id="blogSummary"
+              name="blogSummary"
+              rows="3"
+              required
+              placeholder="Write a brief summary of your blog post"
+            ></textarea>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="blogContent">Blog Content</label>
+            <textarea
+              id="blogContent"
+              name="blogContent"
+              rows="10"
+              required
+              placeholder="Write your blog content here..."
+            ></textarea>
+          </div> -->
+
+          <div class="form-group">
+            <label>Blog Content</label>
+            <div class="editor-toolbar">
+              <button type="button" data-command="bold">
+                <i class="bx bx-bold"></i>
+              </button>
+              <button type="button" data-command="italic">
+                <i class="bx bx-italic"></i>
+              </button>
+              <button type="button" data-command="h2">H2</button>
+              <button type="button" data-command="h3">H3</button>
+              <button type="button" data-command="insertUnorderedList">
+                <i class="bx bx-list-ul"></i>
+              </button>
+              <button type="button" data-command="insertImage">
+                <i class="bx bx-image"></i>
+              </button>
+            </div>
+            <div
+              id="editor"
+              class="content-editor"
+              contenteditable="true"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label for="blogTags">Tags</label>
+            <input
+              type="text"
+              id="blogTags"
+              name="blogTags"
+              placeholder="Enter tags separated by commas"
+            />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Publish Post</button>
+            <button type="button" class="btn-secondary">Save as Draft</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter Your Email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Talent Sphere. All rights reserved | Designed by The
+            Responsive Crew
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

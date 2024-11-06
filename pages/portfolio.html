@@ -22,7 +22,6 @@
           <a href="/pages/portfolio.html">Portfolios</a>
           <a href="/pages/blog.html">Blogs</a>
           <a href="/pages/spotlight.html">Spotlight</a>
-          <a href="/pages/community.html">Community</a>
         </div>
         <div class="theme">
           <i class="bx bx-moon"></i>
@@ -34,7 +33,146 @@
       </nav>
     </header>
 
-    <section>Portfolio page under development...</section>
+    <!-- Previous code remains the same until creatives-grid section -->
+    <section class="community-section container">
+      <div class="community-header">
+        <h1>Our Community</h1>
+        <div class="search-filter">
+          <input
+            type="search"
+            placeholder="Search Creatives..."
+            id="search-creatives"
+          />
+          <select id="filter-creatives">
+            <option value="all">All Creatives</option>
+            <option value="developers">Developers</option>
+            <option value="designers">Designers</option>
+            <option value="writers">Writers</option>
+          </select>
+        </div>
+      </div>
+      <div class="creatives-grid">
+        <div class="member-card">
+          <div class="member-banner banner-1"></div>
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=John"
+            alt="Andrew Sem Tetteh"
+            class="member-avatar"
+          />
+          <div class="member-info">
+            <h3>Andrew Sem Tetteh</h3>
+            <p class="member-role">Full Stack Developer</p>
+            <div class="member-stats">
+              <span><i class="bx bx-book-alt"></i> 12 Works</span>
+              <span><i class="bx bx-star"></i> 48 Following</span>
+            </div>
+            <div class="member-skills">
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Node.js</span>
+            </div>
+            <div class="member-actions">
+              <button class="follow-btn">Follow</button>
+              <button class="book-btn">
+                <i class="bx bx-calendar"></i> Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-banner banner-2"></div>
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
+            alt="Griselda Owusu-Ansah"
+            class="member-avatar"
+          />
+          <div class="member-info">
+            <h3>Griselda Owusu-Ansah</h3>
+            <p class="member-role">UI/UX Designer</p>
+            <div class="member-stats">
+              <span><i class="bx bx-book-alt"></i> 8 Works</span>
+              <span><i class="bx bx-star"></i> 32 Following</span>
+            </div>
+            <div class="member-skills">
+              <span>Figma</span>
+              <span>Adobe XD</span>
+              <span>UI Design</span>
+            </div>
+            <div class="member-actions">
+              <button class="follow-btn">Follow</button>
+              <button class="book-btn">
+                <i class="bx bx-calendar"></i> Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-banner banner-3"></div>
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mike"
+            alt="Princess Cheryl"
+            class="member-avatar"
+          />
+          <div class="member-info">
+            <h3>Princess Cheryl</h3>
+            <p class="member-role">Backend Developer</p>
+            <div class="member-stats">
+              <span><i class="bx bx-book-alt"></i> 15 Works</span>
+              <span><i class="bx bx-star"></i> 56 Following</span>
+            </div>
+            <div class="member-skills">
+              <span>Python</span>
+              <span>Django</span>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="member-actions">
+              <button class="follow-btn">Follow</button>
+              <button class="book-btn">
+                <i class="bx bx-calendar"></i> Book
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-banner banner-4"></div>
+          <img
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Emma"
+            alt="James Cantamantu-Koomson"
+            class="member-avatar"
+          />
+          <div class="member-info">
+            <h3>James Cantamantu-Koomson</h3>
+            <p class="member-role">Content Writer</p>
+            <div class="member-stats">
+              <span><i class="bx bx-book-alt"></i> 25 Works</span>
+              <span><i class="bx bx-star"></i> 42 Following</span>
+            </div>
+            <div class="member-skills">
+              <span>SEO</span>
+              <span>Editing</span>
+            </div>
+            <div class="member-actions">
+              <button class="follow-btn">Follow</button>
+              <button class="book-btn">
+                <i class="bx bx-calendar"></i> Book
+              </button>
+            </div>
+          </div>
+        </div> 
+        
+        </div>
+      </div>
+      <div class="pagination">
+        <button class="page-btn"><i class="bx bx-chevron-left"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn"><i class="bx bx-chevron-right"></i></button>
+      </div>
+    </section>
 
     <!--FOOTER SECTION-->
     <footer>

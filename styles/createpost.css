@@ -1,0 +1,241 @@
+/* Spotlight Form Styles */
+.spotlight-container {
+  padding: 2rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.spotlight-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.spotlight-header h1 {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.spotlight-form {
+  background-color: var(--bg-dark);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.form-section input[type="text"],
+.form-section textarea,
+.form-section select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-dark);
+  border-radius: 0.5rem;
+  background-color: var(--bg-darker);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Tags Container */
+.tags-container {
+  margin-top: 0.5rem;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: var(--bg-accent);
+  color: var(--text-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag i {
+  cursor: pointer;
+}
+
+/* Content Upload Styles */
+.content-upload {
+  margin-top: 1rem;
+}
+
+.upload-area {
+  margin-bottom: 1rem;
+}
+
+.dropzone {
+  border: 2px dashed var(--border-dark);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--btn-primary);
+}
+
+.dropzone i {
+  font-size: 2rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.preview-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.preview-item {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.preview-item .remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Audio Preview */
+.audio-preview {
+  margin-top: 1rem;
+}
+
+.audio-item {
+  background-color: var(--bg-darker);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Publishing Section */
+.publish-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.preview-btn,
+.publish-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preview-btn {
+  background-color: var(--bg-muted);
+  color: var(--text-color);
+}
+
+.publish-btn {
+  background-color: var(--btn-primary);
+  color: white;
+}
+
+.publish-btn:hover {
+  background-color: var(--bg-accent);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--bg-dark);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .spotlight-container {
+    padding: 1rem;
+  }
+
+  .spotlight-form {
+    padding: 1rem;
+  }
+
+  .publish-actions {
+    flex-direction: column;
+  }
+
+  .preview-btn,
+  .publish-btn {
+    width: 100%;
+  }
+
+  .modal-content {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}

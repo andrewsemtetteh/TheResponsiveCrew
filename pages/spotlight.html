@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Talent Sphere</title>
+    <title>Talent Sphere - Student Spotlight</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/styles/spotlight.css" />
     <link rel="stylesheet" href="/styles/index.css" />
@@ -22,7 +22,6 @@
           <a href="/pages/portfolio.html">Portfolios</a>
           <a href="/pages/blog.html">Blogs</a>
           <a href="/pages/spotlight.html">Spotlight</a>
-          <a href="/pages/community.html">Community</a>
         </div>
         <div class="theme">
           <i class="bx bx-moon"></i>
@@ -34,9 +33,146 @@
       </nav>
     </header>
 
-    <section>Spotlight page under development...</section>
+    <main class="container spotlight-container">
+      <button class="create-newpost-btn">
+        <i class="bx bx-plus"></i>
+        Create New Post
+      </button>
+      <section class="spotlight-header">
+        <h1>Creative Spotlight</h1>
+        <p>Discover amazing works from our the Ashesi community</p>
+      </section>
 
-    <!--FOOTER SECTION-->
+      <section class="filter-section">
+        <div class="search-bar">
+          <input type="text" placeholder="Search works..." id="search-input" />
+          <button><i class="bx bx-search"></i></button>
+        </div>
+        <div class="filter-options">
+          <select id="media-type">
+            <option value="">All Work Types</option>
+            <option value="video">Video</option>
+            <option value="image">Image</option>
+            <option value="audio">Audio</option>
+            <option value="3d">3D</option>
+            <option value="design">Design</option>
+          </select>
+          <select id="sort-filter">
+            <option value="oldest">Oldest</option>
+            <option value="recent">Newest</option>
+            <option value="popular">Popular</option>
+          </select>
+        </div>
+      </section>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" data-type="video">
+          <div class="media-container">
+            <img src="#" alt="Short Film Preview" />
+            <div class="play-overlay">
+              <i class="bx bx-play-circle"></i>
+            </div>
+          </div>
+          <div class="gallery-item-info">
+            <span class="media-badge video">Video</span>
+            <h3>Urban Life - Short Film</h3>
+            <p>A day in the life of city dwellers</p>
+            <div class="creator-info">
+              <img src="#" alt="Creator" class="creator-avatar" />
+              <span>Andrew Sem</span>
+            </div>
+            <div class="item-stats">
+              <span><i class="bx bx-heart"></i> 1.2k</span>
+              <span><i class="bx bx-show"></i> 5.4k</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-type="image">
+          <div class="media-container">
+            <img src="#" alt="Photography Series" />
+          </div>
+          <div class="gallery-item-info">
+            <span class="media-badge image">Photography</span>
+            <h3>Nature's Palette</h3>
+            <p>Landscape photography series</p>
+            <div class="creator-info">
+              <img src="#" alt="Creator" class="creator-avatar" />
+              <span>Griselda Owusu-Ansah</span>
+            </div>
+            <div class="item-stats">
+              <span><i class="bx bx-heart"></i> 856</span>
+              <span><i class="bx bx-show"></i> 3.2k</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-type="design">
+          <div class="media-container">
+            <img src="#" alt="UI Design" />
+          </div>
+          <div class="gallery-item-info">
+            <span class="media-badge design">UI/UX</span>
+            <h3>Mobile App Design</h3>
+            <p>Food delivery app interface</p>
+            <div class="creator-info">
+              <img src="#" alt="Creator" class="creator-avatar" />
+              <span>Princess Cheryl</span>
+            </div>
+            <div class="item-stats">
+              <span><i class="bx bx-heart"></i> 734</span>
+              <span><i class="bx bx-show"></i> 2.8k</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-type="audio">
+          <div class="media-container">
+            <img src="#" alt="Music Album" />
+            <div class="audio-overlay">
+              <i class="bx bx-music"></i>
+            </div>
+          </div>
+          <div class="gallery-item-info">
+            <span class="media-badge audio">Audio</span>
+            <h3>Electronic Symphony</h3>
+            <p>Original electronic music composition</p>
+            <div class="creator-info">
+              <img src="" alt="Creator" class="creator-avatar" />
+              <span>DJ Paa</span>
+            </div>
+            <div class="item-stats">
+              <span><i class="bx bx-heart"></i> 523</span>
+              <span><i class="bx bx-show"></i> 1.9k</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-type="image">
+          <div class="media-container">
+            <img src="#" alt="Digital Illustration" />
+          </div>
+          <div class="gallery-item-info">
+            <span class="media-badge image">Illustration</span>
+            <h3>Mythical Creatures</h3>
+            <p>Digital illustration series</p>
+            <div class="creator-info">
+              <img src="#" alt="Creator" class="creator-avatar" />
+              <span>james Cantamantu-Koomson</span>
+            </div>
+            <div class="item-stats">
+              <span><i class="bx bx-heart"></i> 912</span>
+              <span><i class="bx bx-show"></i> 4.1k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="load-more">
+        <button id="load-more-btn">Load More</button>
+      </div>
+    </main>
+
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -56,6 +192,5 @@
         </div>
       </div>
     </footer>
-    <script src="/scripts/script.js"></script>
   </body>
 </html>

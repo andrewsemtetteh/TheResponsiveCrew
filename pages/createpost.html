@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talent Sphere - Create Spotlight</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/createpost.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="icon" href="/images/icon.png" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Talent <span>Sphere</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/portfolio.html">Portfolios</a>
+          <a href="/pages/blog.html">Blogs</a>
+          <a href="/pages/spotlight.html">Spotlight</a>
+        </div>
+        <div class="theme">
+          <i class="bx bx-moon"></i>
+        </div>
+        <div class="auth-buttons">
+          <button id="login-btn">Login</button>
+          <button id="register-btn">Register</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container spotlight-container">
+      <section class="spotlight-header">
+        <h1>Create Spotlight</h1>
+      </section>
+
+      <form id="spotlight-form" class="spotlight-form">
+        <!-- Title Section -->
+        <div class="form-section">
+          <label for="spotlight-title">Title</label>
+          <input
+            type="text"
+            id="spotlight-title"
+            placeholder="e.g., Photography Album, Short Stories Collection, Music Beats"
+            required
+          />
+        </div>
+
+        <!-- Description Section -->
+        <div class="form-section">
+          <label for="spotlight-description">Description</label>
+          <textarea
+            id="spotlight-description"
+            rows="4"
+            placeholder="Describe your collection's theme or purpose..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Category Selection -->
+        <div class="form-section">
+          <label for="spotlight-category">Category</label>
+          <select id="spotlight-category" required>
+            <option value="">Select Category</option>
+            <option value="photography">Photography</option>
+            <option value="stories">Stories</option>
+            <option value="music">Music</option>
+            <option value="art">Artwork</option>
+            <option value="poetry">Poetry</option>
+          </select>
+        </div>
+
+        <!-- Tags Selection -->
+        <div class="form-section">
+          <label>Tags (Select up to 3)</label>
+          <div class="tags-container" id="tags-container">
+            <input
+              type="text"
+              id="tag-input"
+              placeholder="Type and press Enter to add tags"
+            />
+            <div class="selected-tags" id="selected-tags"></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Content Upload Section -->
+        <div class="form-section">
+          <label>Content Upload</label>
+          <div class="content-upload" id="content-upload">
+            <!-- Image Upload -->
+            <div class="upload-area" id="image-upload-area">
+              <div class="dropzone" id="image-dropzone">
+                <i class="bx bx-cloud-upload"></i>
+                <p>Drag and drop images here or click to upload</p>
+                <input
+                  type="file"
+                  id="image-upload"
+                  multiple
+                  accept="image/*"
+                  hidden
+                />
+              </div>
+              <div class="preview-area" id="image-preview"></div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="text-content-area" id="text-content-area">
+              <textarea
+                id="text-content"
+                rows="6"
+                placeholder="Paste your text content here (stories, poetry, etc.)"
+              ></textarea>
+            </div>
+
+            <!-- Audio Upload -->
+            <div class="audio-upload-area" id="audio-upload-area">
+              <div class="dropzone" id="audio-dropzone">
+                <i class="bx bx-music"></i>
+                <p>Upload audio files</p>
+                <input type="file" id="audio-upload" accept="audio/*" hidden />
+              </div>
+              <div class="audio-preview" id="audio-preview"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publishing Section -->
+        <div class="form-section">
+          <div class="publish-actions">
+            <button type="button" class="preview-btn" id="preview-btn">
+              Preview
+            </button>
+            <button type="submit" class="publish-btn" id="publish-btn">
+              Publish Spotlight
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Preview Modal -->
+      <div class="modal" id="preview-modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="preview-content" id="preview-content"></div>
+        </div>
+      </div>
+
+      <!-- Confirmation Modal -->
+      <div class="modal" id="confirm-modal">
+        <div class="modal-content">
+          <h2>Ready to Publish?</h2>
+          <p>Are you sure you want to publish this spotlight?</p>
+          <div class="modal-actions">
+            <button id="confirm-publish">Yes, Publish</button>
+            <button id="cancel-publish">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter Your Email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Talent Sphere. All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+    <script src="/scripts/spotlight.js"></script>
+  </body>
+</html>

@@ -45,3 +45,10 @@ document
     e.preventDefault();
     alert("Newsletter subscription would be implemented here");
   });
+
+// when the create blog post is clicked
+document
+  .querySelector(".create-post-btn")
+  .addEventListener("click", function () {
+    window.location.href = "/pages/createblog.html";
+  });
