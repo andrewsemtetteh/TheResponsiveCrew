@@ -39,6 +39,31 @@
   --border-light: #ddd;
 }
 
+/* general styles for all pages */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem 0;
+}
+
+.theme {
+  cursor: pointer;
+  font-size: larger;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -84,14 +109,14 @@ nav {
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 .auth-buttons button:hover {
   background-color: var(--bg-accent);
 }
 
-/* Footer Styles */
+/* Footer Styles - for all components */
 footer {
   background-color: var(--bg-color);
   color: var(--text-color);

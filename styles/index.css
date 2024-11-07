@@ -1,3 +1,5 @@
+/*we are using the variables from root to ensure consistency in the appearance of our application*/
+
 :root {
   /* General Colors for text based on the theme*/
   --text-color: #f0f0f0;
@@ -39,37 +41,13 @@
   --border-light: #ddd;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background-color: var(--bg-color);
-  line-height: 1.6;
-}
-
-/* Header Styles */
-header {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 2rem 0;
-}
-
-.theme {
-  cursor: pointer;
-  font-size: larger;
-}
-
 /* Hero Section Styles */
 .hero {
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 5rem 0;
   text-align: center;
-  height: 65vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,7 +193,7 @@ header {
 /* Portfolio and Blog Section Styles */
 .portfolio,
 .blog,
-.community {
+.portfolio {
   padding: 3rem 0;
   color: var(--alert-info);
   background-color: var(--bg-dark);
@@ -233,7 +211,7 @@ header {
 
 .portfolio h3,
 .blog h3,
-.community h3 {
+.portfolio h3 {
   color: var(--text-color);
   padding-bottom: 0.2rem;
 }
@@ -313,12 +291,12 @@ header {
   background-color: var(--bg-accent);
 }
 
-/* Community Section Styles */
-.community .card {
+/* portfolio Section Styles */
+.portfolio .card {
   text-align: center;
 }
 
-.community .card img {
+.portfolio .card img {
   width: 6rem;
   height: 6rem;
   border-radius: 9999px;

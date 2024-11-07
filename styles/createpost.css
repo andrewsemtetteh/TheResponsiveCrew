@@ -1,4 +1,3 @@
-/* Spotlight Form Styles */
 .spotlight-container {
   padding: 2rem 0;
   max-width: 800px;
@@ -45,7 +44,6 @@
   font-size: 1rem;
 }
 
-/* Tags Container */
 .tags-container {
   margin-top: 0.5rem;
 }
@@ -71,7 +69,6 @@
   cursor: pointer;
 }
 
-/* Content Upload Styles */
 .content-upload {
   margin-top: 1rem;
 }
@@ -131,7 +128,6 @@
   cursor: pointer;
 }
 
-/* Audio Preview */
 .audio-preview {
   margin-top: 1rem;
 }
@@ -146,7 +142,6 @@
   gap: 1rem;
 }
 
-/* Publishing Section */
 .publish-actions {
   display: flex;
   gap: 1rem;
@@ -176,7 +171,6 @@
   background-color: var(--bg-accent);
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -215,7 +209,6 @@
   margin-top: 2rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .spotlight-container {
     padding: 1rem;

@@ -6,7 +6,6 @@
     <title>Talent Sphere</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/styles/portfolio.css" />
-    <link rel="stylesheet" href="/styles/index.css" />
     <link rel="icon" href="/images/icon.png" type="image/x-icon" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -16,7 +15,7 @@
   <body>
     <header>
       <nav class="container">
-        <div class="logo">Talent <span>Sphere</span></div>
+        <div class="logo" href="/index.html">Talent <span>Sphere</span></div>
         <div class="nav-links">
           <a href="/index.html">Home</a>
           <a href="/pages/portfolio.html">Portfolios</a>
@@ -28,7 +27,6 @@
         </div>
         <div class="auth-buttons">
           <button id="login-btn">Login</button>
-          <button id="register-btn">Register</button>
         </div>
       </nav>
     </header>
@@ -72,6 +70,7 @@
             </div>
             <div class="member-actions">
               <button class="follow-btn">Follow</button>
+              <button class="view-btn">View</button>
               <button class="book-btn">
                 <i class="bx bx-calendar"></i> Book
               </button>
@@ -194,5 +193,12 @@
       </div>
     </footer>
     <script src="/scripts/script.js"></script>
+    <script>
+      document
+        .querySelector(".view-btn")
+        .addEventListener("click", function () {
+          window.location.href = "/pages/profile.html";
+        });
+    </script>
   </body>
 </html>
