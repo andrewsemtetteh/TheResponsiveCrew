@@ -22,16 +22,12 @@
           <a href="/pages/blog.html">Blogs</a>
           <a href="/pages/spotlight.html">Spotlight</a>
         </div>
-        <div class="theme">
-          <i class="bx bx-moon"></i>
-        </div>
         <div class="auth-buttons">
           <button id="login-btn">Login</button>
         </div>
       </nav>
     </header>
 
-    <!--HERO SECTION - A title section/ introductory page of the Talent Sphere-->
     <section class="hero">
       <div class="container">
         <h1>Ashesi Creatives</h1>
@@ -40,7 +36,6 @@
       </div>
     </section>
 
-    <!--PORTFOLIO SECTION - where the portfolio of Ashesi creatives posted are displayed-->
     <section id="portfolio" class="portfolio">
       <div class="container">
         <h2 class="section-title">Portfolios</h2>
@@ -71,15 +66,14 @@
           </div>
         </div>
         <div class="view-more">
-          <button class="view-more-button">View More</button>
+          <button class="view-more-button-portfolio">View More</button>
         </div>
       </div>
     </section>
 
-    <!--BLOG SECTION - where blogs written by ashesi creatives appear-->
     <section id="blog" class="blog">
       <div class="container">
-        <h2 class="section-title">Latest Blog Posts</h2>
+        <h2 class="section-title">Blogs</h2>
         <div class="grid">
           <div class="card">
             <img src="/images/storybook.jpg" alt="storybook" />
@@ -119,34 +113,16 @@
           </div>
         </div>
         <div class="view-more">
-          <button class="view-more-button">View More</button>
+          <button class="view-more-button-blog">View More</button>
         </div>
       </div>
     </section>
 
-    <!--SPOTLIGHT SECTION - where individual works are displayed and can be filtereds-->
     <section class="spotlight">
       <div class="container">
         <div class="spotlight-header">
-          <h2>Creative Spotlight</h2>
+          <h2>Spotlights</h2>
           <p>Explore the creativity of Ashesi student</p>
-        </div>
-        <div class="spotlight-controls">
-          <div class="spotlight-filter">
-            <select>
-              <option value="">All Categories</option>
-              <option value="graphic-design">Graphic Design</option>
-              <option value="music">Music</option>
-              <option value="photography">Photography</option>
-              <option value="novel">Novel</option>
-              <option value="painting">Painting</option>
-              <option value="Writing">Poem / Spoken Word</option>
-            </select>
-          </div>
-          <div class="spotlight-search">
-            <input type="text" placeholder="Search works or authors" />
-            <button>Search</button>
-          </div>
         </div>
         <div class="spotlight-grid">
           <div class="spotlight-item">
@@ -175,12 +151,11 @@
           </div>
         </div>
         <div class="view-more">
-          <button class="view-more-button">View More</button>
+          <button class="view-more-button-spotlight">View More</button>
         </div>
       </div>
     </section>
 
-    <!--FOOTER SECTION-->
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -203,10 +178,32 @@
     <script src="/scripts/script.js"></script>
 
     <script>
+      // redirection to the porfolio page
       document
         .querySelector(".hero-button")
         .addEventListener("click", function () {
           window.location.href = "/pages/portfolio.html";
+        });
+
+      // redirection to the spotlight page
+      document
+        .querySelector(".view-more-button-spotlight")
+        .addEventListener("click", function () {
+          window.location.href = "/pages/spotlight.html";
+        });
+
+      // redirection to the portfolio page
+      document
+        .querySelector(".view-more-button-portfolio")
+        .addEventListener("click", function () {
+          window.location.href = "/pages/portfolio.html";
+        });
+
+      // redirection to the blog page
+      document
+        .querySelector(".view-more-button-blog")
+        .addEventListener("click", function () {
+          window.location.href = "/pages/blog.html";
         });
     </script>
   </body>

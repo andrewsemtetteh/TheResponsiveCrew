@@ -1,3 +1,5 @@
+/*we are using the variables from root to ensure consistency in the appearance of our application*/
+
 :root {
   /* General Colors for text based on the theme*/
   --text-color: #f0f0f0;
@@ -52,16 +54,11 @@ body {
   line-height: 1.6;
 }
 
-/* Header Styles */
+/* Header Styles - for all pages */
 header {
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 2rem 0;
-}
-
-.theme {
-  cursor: pointer;
-  font-size: larger;
 }
 
 .container {
@@ -109,14 +106,14 @@ nav {
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: 5px;
 }
 
 .auth-buttons button:hover {
   background-color: var(--bg-accent);
 }
 
-/* Footer Styles - for all components */
+/* Footer Styles - - for all pages */
 footer {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -177,7 +174,6 @@ button:hover {
   font-size: 0.875rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talent Sphere - Spotlight Post</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/spotlightpost.css" />
+    <link rel="icon" href="/images/icon.png" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Talent <span>Sphere</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/portfolio.html">Portfolios</a>
+          <a href="/pages/blog.html">Blogs</a>
+          <a href="/pages/spotlight.html">Spotlight</a>
+        </div>
+        <div class="auth-buttons">
+          <button id="login-btn">Login</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container spotlightpost-container">
+      <section class="post-wrapper">
+        <div class="post-header">
+          <div class="header-top">
+            <div class="creator-info">
+              <img
+                id="creator-avatar"
+                src="/images/boy.png"
+                alt="Creator"
+                class="creator-avatar"
+              />
+              <div class="creator-details">
+                <span id="creator-name">Griselda Owusu-Ansah</span>
+                <span id="post-time">2 days ago</span>
+              </div>
+            </div>
+            <h1 id="post-title">Futuristic Robot 3D Model</h1>
+          </div>
+        </div>
+        <div class="media-container">
+          <model-viewer
+            id="post-media"
+            src="/models/robot.glb"
+            alt="Futuristic Robot 3D Model"
+            auto-rotate
+            camera-controls
+          ></model-viewer>
+        </div>
+        <div class="post-details">
+          <p id="post-description">
+            A detailed 3D model of a futuristic robot, perfect for sci-fi
+            projects. Includes fully rigged and articulated components for
+            dynamic animations.
+          </p>
+          <div class="item-stats">
+            <span
+              ><i class="bx bx-heart"></i>
+              <span id="likes-count">687</span></span
+            >
+            <span
+              ><i class="bx bx-show"></i>
+              <span id="views-count">2.4k</span></span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter Your Email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Talent Sphere. All rights reserved | Designed by The
+            Responsive Crew
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

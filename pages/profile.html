@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talent Sphere - Spotlight</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/profile.css" />
+    <link rel="icon" href="/images/icon.png" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Talent <span>Sphere</span></div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages/portfolio.html">Portfolios</a>
+          <a href="/pages/blog.html">Blogs</a>
+          <a href="/pages/spotlight.html">Spotlight</a>
+        </div>
+        <div class="auth-buttons">
+          <button id="login-btn">Login</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container max-w-4xl mx-auto p-4 space-y-8">
+      <section class="profile-section">
+        <div class="profile-container">
+          <div class="profile-image-container">
+            <img
+              src="/images/boy.png"
+              alt="Profile Picture"
+              class="profile-image"
+            />
+          </div>
+
+          <div class="profile-content">
+            <div class="profile-header">
+              <h1 class="profile-name">Andrew Sem Tetteh</h1>
+              <div class="profile-actions">
+                <button class="btn-outline" id="editProfileBtn">
+                  <i class="bx bx-edit"></i>
+                  Edit Profile
+                </button>
+                <button class="btn-primary" id="bookingBtn">
+                  <i class="bx bx-calendar"></i>
+                  Book Me
+                </button>
+              </div>
+            </div>
+
+            <p class="profile-bio">
+              Creative professional with a passion for design and photography.
+              Showcasing my best work in this portfolio.
+            </p>
+
+            <div class="skills-section">
+              <h3>Skills</h3>
+              <div class="skills-container">
+                <span class="skill-tag">UI Design</span>
+                <span class="skill-tag">Digital Art</span>
+                <span class="skill-tag">Illustration</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Adobe Creative Suite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <div class="contact-links">
+          <a href="#" class="contact-link">
+            <i class="bx bx-envelope"></i> Email Me
+          </a>
+          <a href="#" class="contact-link">
+            <i class="bx bxl-linkedin"></i> LinkedIn
+          </a>
+          <a href="#" class="contact-link">
+            <i class="bx bxl-behance"></i> Behance
+          </a>
+          <a href="#" class="contact-link">
+            <i class="bx bxl-dribbble"></i> Dribbble
+          </a>
+        </div>
+      </section>
+
+      <section class="featured-works">
+        <h2>Featured Works</h2>
+        <div class="works-grid">
+          <div class="work-card">
+            <img src="/images/placeholder.jpg" alt="Project 1" />
+            <div class="work-info">
+              <h3>Project Title</h3>
+              <p>Project description goes here</p>
+            </div>
+          </div>
+          <div class="work-card">
+            <img src="/images/placeholder.jpg" alt="Project 2" />
+            <div class="work-info">
+              <h3>Project Title</h3>
+              <p>Project description goes here</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="bookingModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Book a Session</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <form class="booking-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Tell me about your project"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Request</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter Your Email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Talent Sphere. All rights reserved | Designed by The
+            Responsive Crew
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/scripts/spotlight.js"></script>
+
+    <script>
+      const bookingBtn = document.getElementById("bookingBtn");
+      const bookingModal = document.getElementById("bookingModal");
+      const closeModal = document.querySelector(".close-modal");
+      const bookingForm = document.querySelector(".booking-form");
+
+      bookingBtn.addEventListener("click", () => {
+        bookingModal.classList.add("active");
+      });
+
+      closeModal.addEventListener("click", () => {
+        bookingModal.classList.remove("active");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === bookingModal) {
+          bookingModal.classList.remove("active");
+        }
+      });
+
+      bookingForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+        };
+
+        console.log("Form submitted:", formData);
+
+        bookingForm.reset();
+        bookingModal.classList.remove("active");
+      });
+
+      const editProfileBtn = document.getElementById("editProfileBtn");
+      editProfileBtn.addEventListener("click", () => {
+        console.log("Edit profile clicked");
+      });
+    </script>
+  </body>
+</html>

@@ -101,6 +101,10 @@
   font-size: 0.8rem;
 }
 
+.member-actions {
+  padding: 0.25rem 0.75rem;
+}
+
 .follow-btn,
 .view-btn,
 .book-btn {
@@ -111,6 +115,7 @@
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  gap: 1rem;
 }
 
 .follow-btn:hover,

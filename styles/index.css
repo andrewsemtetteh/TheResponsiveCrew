@@ -1,47 +1,3 @@
-/*we are using the variables from root to ensure consistency in the appearance of our application*/
-
-:root {
-  /* General Colors for text based on the theme*/
-  --text-color: #f0f0f0;
-  --text-muted: #b0b0b0;
-  --text-light-color: #333;
-  --text-light-muted: #666;
-
-  /* Background Colors based on themes - light and dark */
-  --bg-color: #000000;
-  --bg-light: #f5f5f5;
-
-  /* Component Backgrounds - for the components we would create - also based on theme */
-  --bg-dark: #0a0a0a;
-  --bg-darker: #111111;
-  --bg-light: #1a1a1a;
-  --bg-muted: #33415c;
-  --bg-accent: #0353a4;
-  --bg-light-muted: #7d8597;
-  --bg-light-1: #ead7d7;
-  --bg-light-2: #eee4e1;
-  --bg-light-3: #f6f4d2;
-
-  /* Alerts - mainly for the displaying errors, warnings,info and success */
-  --alert-error: #e74c3c;
-  --alert-warning: #f39c12;
-  --alert-success: #2ecc71;
-  --alert-info: #3498db;
-  --alert-dark-bg: #2c3e50;
-  --alert-light-bg: #ecf0f1;
-
-  /* Buttons - the backgound colores for the buttons */
-  --btn-primary: #0466c8;
-  --btn-secondary: #7d8597;
-  --btn-accent: #8edce6;
-  --btn-light-bg: #cbdfbd;
-
-  /* Border Colors for both light and dark themes */
-  --border-dark: #5c677d;
-  --border-light: #ddd;
-}
-
-/* Hero Section Styles */
 .hero {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -71,7 +27,7 @@
   color: var(--alert-light-bg);
   padding: 0.5rem 1rem;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 5px;
   font-size: 1.25rem;
 }
 
@@ -79,7 +35,6 @@
   background-color: var(--bg-accent);
 }
 
-/* Spotlight Section Styles */
 .spotlight {
   background-color: var(--bg-dark);
   padding: 3rem 0;
@@ -190,7 +145,6 @@
   background-color: var(--bg-accent);
 }
 
-/* Portfolio and Blog Section Styles */
 .portfolio,
 .blog,
 .portfolio {
@@ -277,21 +231,24 @@
   padding: 1rem 0;
 }
 
-.view-more-button {
+.view-more-button-blog,
+.view-more-button-spotlight,
+.view-more-button-portfolio {
   padding: 0.6rem 1.2rem;
   background-color: var(--btn-primary);
   color: var(--text-color);
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.view-more-button:hover {
+.view-more-button-blog:hover,
+.view-more-button-portfolio:hover,
+.view-more-button-spotlight:hover {
   background-color: var(--bg-accent);
 }
 
-/* portfolio Section Styles */
 .portfolio .card {
   text-align: center;
 }
