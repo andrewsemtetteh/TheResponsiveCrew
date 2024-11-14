@@ -45,7 +45,6 @@
 .form-group input[type="email"]:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: none;
   border-color: var(--btn-primary);
   box-shadow: 0 0 0 2px rgba(4, 102, 200, 0.2);
 }
@@ -229,47 +228,17 @@
   font-size: 1.2rem;
 }
 
-.editor-toolbar {
-  background-color: var(--bg-darker);
-  padding: 0.5rem;
-  border-radius: 4px 4px 0 0;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.editor-toolbar button {
-  background-color: transparent;
-  border: 1px solid var(--border-dark);
-  border-radius: 4px;
-  padding: 0.5rem;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.editor-toolbar button:hover {
-  background-color: var(--bg-muted);
-}
-
-.editor-toolbar button.active {
-  background-color: var(--btn-primary);
-  border-color: var(--btn-primary);
-}
-
 .content-editor {
   min-height: 300px;
   padding: 1rem;
   background-color: var(--bg-darker);
   border: 1px solid var(--border-dark);
-  border-top: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
   color: var(--text-color);
   overflow-y: auto;
 }
 
 .content-editor:focus {
-  outline: none;
   border-color: var(--btn-primary);
 }
 
