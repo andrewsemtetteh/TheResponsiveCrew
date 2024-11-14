@@ -3,29 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Talent Sphere - Register</title>
     <link rel="stylesheet" href="/styles/authentication.css" />
+    <link rel="icon" href="/images/icon.png" type="image/x-icon" />
   </head>
   <body>
     <div class="container">
       <h2>Register</h2>
       <form id="registerForm">
-        <input type="text" id="username" placeholder="Username" required />
+        <input type="text" id="fullname" placeholder="Full Name" required />
         <input type="email" id="email" placeholder="Email Address" required />
         <input type="password" id="password" placeholder="Password" required />
-        <select id="yearGroup" required>
-          <option value="">Select Year Group</option>
-          <option value="2025">2025</option>
-          <option value="2026">2026</option>
-          <option value="2027">2027</option>
-          <option value="2028">2028</option>
-          <option value="2029">2029</option>
-          <option value="2030">2030</option>
-          <option value="2031">2031</option>
-          <option value="2032">2032</option>
-          <option value="2033">2033</option>
-          <option value="2034">2034</option>
-        </select>
         <select id="expertise" required>
           <option value="">Select Expertise</option>
           <option value="graphic_design">Graphic Design</option>
@@ -46,10 +34,6 @@
           required
         ></textarea>
         <input type="file" id="profilePicture" accept="image/*" />
-        <div class="terms-checkbox">
-          <input type="checkbox" id="terms" required />
-          <label for="terms">I agree to the Terms and Conditions</label>
-        </div>
         <button type="submit">Register</button>
       </form>
       <div class="links">

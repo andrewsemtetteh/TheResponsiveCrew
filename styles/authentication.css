@@ -14,7 +14,9 @@ body {
   background-repeat: no-repeat;
   background-color: rgba(152, 104, 104, 0.9);
   background-blend-mode: overlay;
+  backdrop-filter: blur(1px);
 }
+
 .container {
   background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(1px);
@@ -25,15 +27,18 @@ body {
   max-width: 300px;
   margin: 50px 0px;
 }
+
 h2 {
   text-align: center;
   color: #333;
   font-size: 2.8rem;
 }
+
 form {
   display: flex;
   flex-direction: column;
 }
+
 input,
 select,
 textarea {
@@ -43,9 +48,11 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
 }
+
 select[multiple] {
   height: 120px;
 }
+
 button {
   background-color: rgb(7, 7, 95);
   color: white;
@@ -56,31 +63,28 @@ button {
   margin-top: 20px;
   font-size: 18px;
 }
+
 button:hover {
   background-color: rgb(7, 7, 61);
 }
+
 .links {
   text-align: center;
   margin-top: 20px;
 }
+
 .links a {
   color: blue;
   text-decoration: none;
 }
-.terms-checkbox {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-.terms-checkbox input {
-  margin-right: 10px;
-}
+
 .profile-upload {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
 }
+
 .profile-upload img {
   width: 100px;
   height: 100px;
@@ -88,6 +92,7 @@ button:hover {
   object-fit: cover;
   margin-bottom: 10px;
 }
+
 @media (max-width: 480px) {
   .container {
     padding: 20px;

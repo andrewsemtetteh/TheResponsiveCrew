@@ -4,6 +4,9 @@
   padding: 1.5rem;
   margin-bottom: 2rem;
   color: var(--text-color);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile-container {
@@ -38,6 +41,18 @@
 
 .profile-header {
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.name-and-actions {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -48,6 +63,12 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-color);
+  margin: 0;
+}
+
+.creator-type {
+  color: var(--text-muted);
+  font-size: 0.875rem;
 }
 
 .profile-actions {
@@ -66,13 +87,13 @@
 
 .skills-section h3 {
   color: var(--text-color);
+  margin-bottom: 0.5rem;
 }
 
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 .skill-tag {
@@ -83,24 +104,11 @@
   font-size: 0.875rem;
 }
 
-.contact-section {
-  background-color: var(--bg-dark);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.contact-section h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
 .contact-links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .contact-link {
@@ -117,6 +125,9 @@
 }
 
 .featured-works {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 2rem;
 }
 
@@ -253,7 +264,7 @@
   resize: vertical;
 }
 
-.btn-primary {
+.book-btn {
   background-color: var(--btn-primary);
   color: var(--text-color);
   padding: 0.5rem 1rem;
@@ -279,11 +290,17 @@
   transition: all 0.2s;
 }
 
-.btn-primary:hover {
+.book-btn:hover {
   background-color: var(--bg-accent);
 }
 
 .btn-outline:hover {
   background-color: var(--bg-darker);
   border-color: var(--btn-accent);
+}
+
+.booking-form .book-btn {
+  width: fit-content;
+  font-size: 0.875rem;
+  margin: 0 auto;
 }

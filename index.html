@@ -8,6 +8,10 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/styles/index.css" />
     <link rel="icon" href="/images/icon.png" type="image/x-icon" />
@@ -41,34 +45,44 @@
     <section id="portfolio" class="portfolio">
       <div class="container">
         <h2 class="section-title">Portfolios</h2>
-        <div class="grid">
-          <div class="card">
-            <img src="/images/girl.png" alt="Profile 1" />
-            <h3>Griselda Owusu-Ansah</h3>
-            <p>Graphic Designer</p>
-            <a href="#">View Profile</a>
+        <div class="swiper portfolio-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/girl.png" alt="Profile 1" />
+                <h3>Griselda Owusu-Ansah</h3>
+                <p>Graphic Designer</p>
+                <a href="#">View Profile</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/woman.png" alt="Profile 2" />
+                <h3>Princess Cheryl</h3>
+                <p>Photographer</p>
+                <a href="#">View Profile</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/boy.png" alt="Profile 3" />
+                <h3>Mr. Anonymous</h3>
+                <p>Web Developer</p>
+                <a href="#">View Profile</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/james.jpg" alt="Profile 4" />
+                <h3>James Cantamantu-Koomson</h3>
+                <p>Illustrator</p>
+                <a href="#">View Profile</a>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <img src="/images/woman.png" alt="Profile 2" />
-            <h3>Princess Cheryl</h3>
-            <p>Photographer</p>
-            <a href="#">View Profile</a>
-          </div>
-          <div class="card">
-            <img src="/images/boy.png" alt="Profile 3" />
-            <h3>Mr. Anonymous</h3>
-            <p>Web Developer</p>
-            <a href="#">View Profile</a>
-          </div>
-          <div class="card">
-            <img src="/images/james.jpg" alt="Profile 4" />
-            <h3>James Cantamantu-Koomson</h3>
-            <p>Illustrator</p>
-            <a href="#">View Profile</a>
-          </div>
-        </div>
-        <div class="view-more">
-          <button class="view-more-button-portfolio">View More</button>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
@@ -76,84 +90,98 @@
     <section id="blog" class="blog">
       <div class="container">
         <h2 class="section-title">Blogs</h2>
-        <div class="grid">
-          <div class="card">
-            <img src="/images/storybook.jpg" alt="storybook" />
-            <p class="author">James Cantamantu-Koomson</p>
-            <h3>The Gods Are Not To Blame</h3>
-            <p>
-              In this powerful play, Nigerian playwright Ola Rotimi reinterprets
-              the classic Greek tragedy Oedipus Rex within an African context.
-              Set in the ancient kingdom of Umofia, the narrative explores...
-            </p>
-            <a href="#">Read More</a>
+        <div class="swiper blog-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/storybook.jpg" alt="storybook" />
+                <p class="author">James Cantamantu-Koomson</p>
+                <h3>The Gods Are Not To Blame</h3>
+                <p>
+                  In this powerful play, Nigerian playwright Ola Rotimi
+                  reinterprets the classic Greek tragedy Oedipus Rex within an
+                  African context. Set in the ancient kingdom of Umofia, the
+                  narrative explores...
+                </p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <img
+                  src="/images/publicspeaking.jpg"
+                  alt="Someone speaking in public"
+                />
+                <p class="author">Griselda Owusu-Ansah</p>
+                <h3>How To Speak With Confidence</h3>
+                <p>
+                  Speaking with confidence is essential for effective
+                  communication, whether in personal interactions, public
+                  speaking, or professional settings. Here are some key tips...
+                </p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="/images/ashesi.jpg_large" alt="Ashesi University" />
+                <p class="author">Princess Cheryl</p>
+                <h3>Ethical Leadership in Ashesi University</h3>
+                <p>
+                  Ashesi University, located in Ghana, is renowned for its
+                  commitment to developing ethical leaders who are not only
+                  skilled in their respective fields but also dedicated...
+                </p>
+                <a href="#">Read More</a>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <img
-              src="/images/publicspeaking.jpg"
-              alt="Someone speaking in public"
-            />
-            <p class="author">Griselda Owusu-Ansah</p>
-            <h3>How To Speak With Confidence</h3>
-            <p>
-              Speaking with confidence is essential for effective communication,
-              whether in personal interactions, public speaking, or professional
-              settings. Here are some key tips...
-            </p>
-            <a href="#">Read More</a>
-          </div>
-          <div class="card">
-            <img src="/images/ashesi.jpg_large" alt="Ashesi University" />
-            <p class="author">Princess Cheryl</p>
-            <h3>Ethical Leadership in Ashesi University</h3>
-            <p>
-              Ashesi University, located in Ghana, is renowned for its
-              commitment to developing ethical leaders who are not only skilled
-              in their respective fields but also dedicated...
-            </p>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-        <div class="view-more">
-          <button class="view-more-button-blog">View More</button>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
 
     <section class="spotlight">
       <div class="container">
-        <div class="spotlight-header">
-          <h2>Spotlights</h2>
-          <p>Explore the creativity of Ashesi student</p>
-        </div>
-        <div class="spotlight-grid">
-          <div class="spotlight-item">
-            <img src="/images/sunset.jpg" alt="sunset" />
-            <div class="spotlight-item-content">
-              <h3>Sunset Serenity</h3>
-              <p>Princess Cheryl</p>
-              <a href="#">View Details</a>
+        <h2 class="section-title">Spotlights</h2>
+        <div class="swiper spotlight-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="spotlight-item">
+                <img src="/images/sunset.jpg" alt="sunset" />
+                <div class="spotlight-item-content">
+                  <h3>Sunset Serenity</h3>
+                  <p>Princess Cheryl</p>
+                  <a href="#">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="spotlight-item">
+                <img src="/images/music.jpg" alt="music" />
+                <div class="spotlight-item-content">
+                  <h3>Whispers of the Heart</h3>
+                  <p>Griselda Owusu-Ansah</p>
+                  <a href="#">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="spotlight-item">
+                <img src="/images/poem.jpg" alt="Artwork 4" />
+                <div class="spotlight-item-content">
+                  <h3>Compelling Writing Piece</h3>
+                  <p>James Cantamantu-Koomson</p>
+                  <a href="#">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="spotlight-item">
-            <img src="/images/music.jpg" alt="music" />
-            <div class="spotlight-item-content">
-              <h3>Whispers of the Heart</h3>
-              <p>Griselda Owusu-Ansah</p>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-          <div class="spotlight-item">
-            <img src="/images/poem.jpg" alt="Artwork 4" />
-            <div class="spotlight-item-content">
-              <h3>Compelling Writing Piece</h3>
-              <p>James Cantamantu-Koomson</p>
-              <a href="#">View Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="view-more">
-          <button class="view-more-button-spotlight">View More</button>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
@@ -177,35 +205,45 @@
         </div>
       </div>
     </footer>
-    <script src="/scripts/script.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/scripts/script.js"></script>
     <script>
-      // redirection to the porfolio page
+      // Initialize Swiper sliders
+      const initializeSliders = () => {
+        const sliderConfig = {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          },
+        };
+
+        new Swiper(".portfolio-slider", sliderConfig);
+        new Swiper(".blog-slider", sliderConfig);
+        new Swiper(".spotlight-slider", sliderConfig);
+      };
+
+      document.addEventListener("DOMContentLoaded", initializeSliders);
+
+      // Hero button redirection
       document
         .querySelector(".hero-button")
         .addEventListener("click", function () {
           window.location.href = "/pages/portfolio.html";
-        });
-
-      // redirection to the spotlight page
-      document
-        .querySelector(".view-more-button-spotlight")
-        .addEventListener("click", function () {
-          window.location.href = "/pages/spotlight.html";
-        });
-
-      // redirection to the portfolio page
-      document
-        .querySelector(".view-more-button-portfolio")
-        .addEventListener("click", function () {
-          window.location.href = "/pages/portfolio.html";
-        });
-
-      // redirection to the blog page
-      document
-        .querySelector(".view-more-button-blog")
-        .addEventListener("click", function () {
-          window.location.href = "/pages/blog.html";
         });
     </script>
   </body>

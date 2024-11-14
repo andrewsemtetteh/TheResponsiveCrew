@@ -5,6 +5,10 @@
 }
 
 .create-post-section h1 {
+  text-align: center;
+}
+
+.create-post-section h1 {
   color: var(--text-color);
   font-size: 2rem;
   margin-bottom: 2rem;

@@ -60,16 +60,47 @@
   color: var(--alert-info);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+.swiper {
+  padding: 2rem 1rem;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--text-color);
+  background-color: var(--btn-primary);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--bg-accent);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1rem;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--bg-accent);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--btn-primary);
 }
 
 .card {
   background-color: var(--bg-darker);
   border-radius: 0.375rem;
   padding: 1rem;
+  height: 100%;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
@@ -105,55 +136,12 @@
   text-decoration: none;
 }
 
-.view-more {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1rem 0;
-}
-
-.view-more-button-blog,
-.view-more-button-spotlight,
-.view-more-button-portfolio {
-  padding: 0.6rem 1.2rem;
-  background-color: var(--btn-primary);
-  color: var(--text-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.view-more-button-blog:hover,
-.view-more-button-portfolio:hover,
-.view-more-button-spotlight:hover {
-  background-color: var(--bg-accent);
-}
-
-.spotlight-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.spotlight-header h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.spotlight-header p {
-  color: var(--text-muted);
-}
-
-.spotlight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
 .spotlight-item {
   background-color: var(--bg-darker);
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 0.3s ease;
+  height: 100%;
 }
 
 .spotlight-item:hover {

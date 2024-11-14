@@ -44,16 +44,18 @@
 
 .member-card:hover {
   transform: translateY(-5px);
+  background-color: var(--bg-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
 }
 
 .member-banner {
   height: 80px;
-  background: linear-gradient(45deg, var(--btn-primary), var(--bg-accent));
 }
 
 .member-avatar {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin: -40px auto 0;
   display: block;
@@ -71,15 +73,6 @@
 }
 
 .member-role {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.member-stats {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-bottom: 1rem;
@@ -103,9 +96,12 @@
 
 .member-actions {
   padding: 0.25rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.follow-btn,
 .view-btn,
 .book-btn {
   background-color: var(--btn-primary);
@@ -115,10 +111,8 @@
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  gap: 1rem;
 }
 
-.follow-btn:hover,
 .view-btn:hover,
 .book-btn:hover {
   background-color: var(--bg-accent);
