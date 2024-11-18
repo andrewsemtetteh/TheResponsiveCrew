@@ -1,4 +1,3 @@
-/* spotlight.css */
 .spotlight-container {
   padding: 2rem 0;
 }
@@ -133,31 +132,6 @@
   padding: 1.5rem;
 }
 
-.media-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 15px;
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
-  color: white;
-}
-
-.media-badge.video {
-  background-color: #e74c3c;
-}
-.media-badge.image {
-  background-color: #3498db;
-}
-.media-badge.audio {
-  background-color: #9b59b6;
-}
-.media-badge.model {
-  background-color: #2ecc71;
-}
-.media-badge.design {
-  background-color: #f39c12;
-}
-
 .gallery-item-info h3 {
   color: var(--text-color);
   font-size: 1.25rem;
@@ -204,24 +178,4 @@
 
 .item-stats i {
   font-size: 1.1rem;
-}
-
-.load-more {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.load-more button {
-  padding: 0.75rem 2rem;
-  background-color: var(--btn-primary);
-  color: var(--text-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s;
-}
-
-.load-more button:hover {
-  background-color: var(--bg-accent);
 }

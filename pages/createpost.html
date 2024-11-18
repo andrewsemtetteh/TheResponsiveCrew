@@ -49,17 +49,6 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="post-type">Media Type</label>
-            <select id="post-type" required>
-              <option value="">Select Media Type</option>
-              <option value="video">Video</option>
-              <option value="image">Image</option>
-              <option value="audio">Audio</option>
-              <option value="model">3D Model</option>
-              <option value="design">Design</option>
-            </select>
-          </div>
           <button type="submit" class="submit-btn">Create Post</button>
         </form>
       </section>
@@ -107,11 +96,6 @@
           mediaPreview.innerHTML = `<audio controls><source src="${URL.createObjectURL(
             file
           )}" type="${file.type}"></audio>`;
-        } else if (fileType === "model") {
-          // TODO: Add support for 3D model previews
-          mediaPreview.src = "#";
-          mediaPreview.innerHTML =
-            '<div class="model-preview">3D Model Preview</div>';
         } else {
           mediaPreview.src = "#";
           mediaPreview.innerHTML =
