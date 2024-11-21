@@ -30,13 +30,13 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 300px;
-  margin: 50px 0px;
+  margin: 40px 0px;
 }
 
 h2 {
   text-align: center;
   color: #333;
-  font-size: 2.8rem;
+  font-size: 2rem;
 }
 
 form {
@@ -47,11 +47,11 @@ form {
 input,
 select,
 textarea {
-  margin: 10px 0;
-  padding: 15px;
+  margin: 8px 0;
+  padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 select[multiple] {
@@ -100,6 +100,10 @@ button:hover {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
+}
+
+.form-control {
+  margin-top: 1rem;
 }
 
 .error-messages {

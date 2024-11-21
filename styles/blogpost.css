@@ -89,6 +89,11 @@
   font-size: 1.1rem;
 }
 
+.blog-content .description {
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
 .blog-content p {
   margin-bottom: 1.5rem;
 }
@@ -146,9 +151,8 @@
 }
 
 .comments-section {
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-dark);
 }
 
 .comments-title {
@@ -280,11 +284,6 @@
   .comment-form {
     flex-direction: column;
     align-items: center;
-  }
-
-  .comment-avatar {
-    width: 2rem;
-    height: 2rem;
   }
 }
 

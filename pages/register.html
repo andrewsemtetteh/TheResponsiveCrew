@@ -10,7 +10,12 @@
   <body>
     <div class="container">
       <h2>Register</h2>
-      <form id="registerForm">
+      <form
+        id="registerForm"
+        action="/php/register.php"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <input
           type="text"
           id="fullname"
@@ -20,7 +25,7 @@
         <input
           type="email"
           id="email"
-          placeholder="Enter your Ashesi Email"
+          placeholder="Enter your Ashesi email"
           required
         />
         <input
@@ -35,26 +40,10 @@
           placeholder="Confirm your password"
           required
         />
-        <select id="expertise" required>
-          <option value="">Select Your Expertise</option>
-          <option value="graphic_design">Graphic Design</option>
-          <option value="web_development">Web Development</option>
-          <option value="photography">Photography</option>
-          <option value="videography">Videography</option>
-          <option value="writing">Writing</option>
-          <option value="music_production">Music Production</option>
-          <option value="illustration">Illustration</option>
-          <option value="ui_ux_design">UI/UX Design</option>
-          <option value="3d_modeling">3D Modeling</option>
-          <option value="animation">Animation</option>
-        </select>
-        <textarea
-          id="description"
-          placeholder="Tell us about yourself and your creative journey"
-          rows="4"
-          required
-        ></textarea>
-        <input type="file" id="profilePicture" accept="image/*" />
+        <div class="form-control">
+          <label for="avatar">Profile Picture</label>
+          <input type="file" id="profilePicture" accept="image/*" />
+        </div>
         <button type="submit">Register</button>
         <div class="error-messages" id="errorMessages"></div>
       </form>

@@ -322,52 +322,6 @@
   color: var(--bg-accent);
 }
 
-.spotlight-item {
-  background-color: var(--bg-darker);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  height: 100%;
-}
-
-.spotlight-item:hover {
-  transform: translateY(-5px);
-}
-
-.spotlight-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.spotlight-item-content {
-  padding: 1rem;
-}
-
-.spotlight-item h3 {
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
-}
-
-.spotlight-item p {
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-
-.spotlight-item a {
-  display: inline-block;
-  background-color: var(--btn-primary);
-  color: var(--text-color);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s;
-}
-
-.spotlight-item a:hover {
-  background-color: var(--bg-accent);
-}
-
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;

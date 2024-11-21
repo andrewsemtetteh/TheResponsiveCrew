@@ -118,32 +118,6 @@
   background-color: var(--bg-accent);
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-}
-
-.page-btn {
-  background-color: var(--bg-darker);
-  color: var(--text-color);
-  border: 1px solid var(--border-dark);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.page-btn.active {
-  background-color: var(--btn-primary);
-  border-color: var(--btn-primary);
-}
-
-.page-btn:hover {
-  background-color: var(--bg-accent);
-}
-
 @media (max-width: 768px) {
   .portfolio-header {
     flex-direction: column;

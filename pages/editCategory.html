@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Talent Sphere - Create New Post</title>
+    <title>Talent Sphere - Add Category</title>
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/styles/createpost.css" />
+    <link rel="stylesheet" href="/styles/addCategory.css" />
     <link rel="icon" href="/images/icon.png" type="image/x-icon" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -40,27 +40,27 @@
     </header>
 
     <main class="container">
-      <section class="create-post-section">
-        <h1>Create New Post</h1>
-        <form id="create-post-form" action="" enctype="multipart/form-data">
+      <section class="add-category-section">
+        <h1>Edit Category</h1>
+        <form id="add-category-form" action="" method="POST">
           <div class="form-group">
-            <label for="post-title">Post Title</label>
-            <input type="text" id="post-title" required />
+            <label for="category-title">Category Title</label>
+            <input
+              type="text"
+              id="category-title"
+              name="category-title"
+              required
+            />
           </div>
           <div class="form-group">
-            <label for="post-description">Description</label>
-            <textarea id="post-description" required></textarea>
+            <label for="category-description">Category Description</label>
+            <textarea
+              id="category-description"
+              name="category-description"
+              required
+            ></textarea>
           </div>
-          <div class="form-group">
-            <label for="post-media">Upload Media</label>
-            <div class="media-upload-container">
-              <input type="file" id="post-media" required />
-              <div class="media-preview">
-                <img src="#" alt="Media Preview" id="media-preview" />
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="submit-btn">Create Post</button>
+          <button type="submit" class="submit-btn">Update Category</button>
         </form>
       </section>
     </main>
@@ -76,6 +76,6 @@
       </div>
     </footer>
 
-    <script src="/scripts/createpost.js"></script>
+    <script src="/scripts/addCategory.js"></script>
   </body>
 </html>

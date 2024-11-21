@@ -10,14 +10,19 @@
   <body>
     <div class="container">
       <h2>Login</h2>
-      <form id="loginForm">
+      <form id="loginForm" action="/php/login.php" method="POST">
         <input
           type="text"
           id="email"
-          placeholder="Enter your Ashesi Email"
+          placeholder="Enter your Ashesi email"
           required
         />
-        <input type="password" id="password" placeholder="Password" required />
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
         <button type="submit">Login</button>
         <div
           id="errorMessages"
