@@ -38,7 +38,7 @@ require 'config/database.php';
                     <div class="auth-buttons">
                         <button id="login-btn">Login</button>
                     </div>
-                    <div class="navprofile">
+                    <!-- <div class="navprofile">
                         <div class="avatar">
                             <img src="/images/girl.png" alt="profile" />
                         </div>
@@ -47,7 +47,7 @@ require 'config/database.php';
                             <a href="<?= ROOT_URL ?>profile.php">Profile</a>
                             <a href="<?= ROOT_URL ?>logout.php">Logout</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </nav>
         </header>
