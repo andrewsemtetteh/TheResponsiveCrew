@@ -1,7 +1,5 @@
 <?php
-
-require 'common/header.php';
-
+    require 'common/header.php';
 ?>
 
 <section class="hero">
@@ -168,5 +166,5 @@ document
 
 
 <?php
-  require 'common/footer.php';
+    require 'common/footer.php';
 ?>

@@ -56,39 +56,4 @@ require 'config/database.php';
         document.querySelector("#login-btn").addEventListener("click", function() {
             window.location.href = "<?= ROOT_URL ?>login.php";
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the avatar element specifically (the circle) and dropdown
-            const avatar = document.querySelector('.navprofile .avatar');
-            const dropdown = document.querySelector('.navprofile-dropdown');
-            let isDropdownOpen = false;
-
-            // Toggle dropdown when clicking the avatar
-            avatar.addEventListener('click', function(e) {
-                e.stopPropagation();
-                isDropdownOpen = !isDropdownOpen;
-
-                if (isDropdownOpen) {
-                    dropdown.classList.add('active');
-                } else {
-                    dropdown.classList.remove('active');
-                }
-            });
-
-            // Close dropdown only when clicking outside both the avatar and dropdown
-            document.addEventListener('click', function(e) {
-                const isClickInsideDropdown = dropdown.contains(e.target);
-                const isClickInsideAvatar = avatar.contains(e.target);
-
-                if (!isClickInsideDropdown && !isClickInsideAvatar && isDropdownOpen) {
-                    dropdown.classList.remove('active');
-                    isDropdownOpen = false;
-                }
-            });
-
-            // Prevent clicks inside dropdown from closing it
-            dropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
         </script>
