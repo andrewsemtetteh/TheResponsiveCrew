@@ -3,14 +3,6 @@
   min-height: calc(100vh - 200px);
 }
 
-.category-title {
-  height: 7.5rem;
-  display: grid;
-  place-items: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
 .filter-container {
   margin-bottom: 2rem;
   display: flex;

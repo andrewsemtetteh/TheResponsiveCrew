@@ -1,6 +1,6 @@
 .landing-section {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("/images/background.jpg");
+    url("./images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -213,113 +213,6 @@
 
 .swiper-pagination-bullet-active {
   background-color: var(--btn-primary);
-}
-
-.blog-post {
-  display: flex;
-  background-color: var(--bg-darker);
-  border-radius: 1rem;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  height: 400px;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
-.blog-post:hover {
-  transform: translateY(-5px);
-  background-color: var(--bg-light);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-.post-image {
-  flex: 0 0 40%;
-  height: 100%;
-}
-
-.post-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.post-content {
-  flex: 1;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.post-category {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background-color: var(--bg-accent);
-  color: var(--text-color);
-  border-radius: 1rem;
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-  width: fit-content;
-}
-
-.post-title {
-  color: var(--text-color);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.post-excerpt {
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.post-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.author-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.author-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.author-name {
-  color: var(--text-color);
-  font-size: 0.875rem;
-}
-
-.post-date {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-}
-
-.read-time {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  float: right;
-}
-
-.read-more {
-  display: inline-block;
-  color: var(--btn-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  margin-top: auto;
-}
-
-.read-more:hover {
-  color: var(--bg-accent);
 }
 
 @media (max-width: 768px) {
