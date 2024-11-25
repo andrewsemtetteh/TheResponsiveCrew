@@ -1,5 +1,14 @@
 <?php
 require 'common/header.php';
+
+// Fetch categories from database
+$query = "SELECT * FROM categories";
+$categories = mysqli_query($connection, $query);
+
+// Check if query was successful
+if (!$categories) {
+    die("Query failed: " . mysqli_error($connection));
+}
 ?>
 
 <div class="manage-container container">
@@ -22,7 +31,6 @@ require 'common/header.php';
         </a>
 
         <?php if (isset($_SESSION['user_is_admin'])): ?>
-
         <a href="<?= ROOT_URL ?>admin/addUser.php" class="sidebar-section">
             <i class="bx bx-user-plus"></i>
             <h5>Add User</h5>
@@ -35,7 +43,7 @@ require 'common/header.php';
             <i class="bx bx-plus-circle"></i>
             <h5>Add Category</h5>
         </a>
-        <a href="<?= ROOT_URL ?>admin/manageCategory.php" class="sidebar-section actives">
+        <a href="<?= ROOT_URL ?>admin/manageCategory.php" class="sidebar-section active">
             <i class="bx bx-category"></i>
             <h5>Manage Category</h5>
         </a>
@@ -44,6 +52,7 @@ require 'common/header.php';
 
     <main class="main-content" id="manage-category">
         <h2>Manage Categories</h2>
+
         <table class="category-table">
             <thead>
                 <tr>
@@ -52,34 +61,19 @@ require 'common/header.php';
                 </tr>
             </thead>
             <tbody>
+                <?php while($category = mysqli_fetch_assoc($categories)) : ?>
                 <tr>
-                    <td>Technology</td>
+                    <td><?= htmlspecialchars($category['title']) ?></td>
                     <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
+                        <button
+                            onclick="window.location.href='<?= ROOT_URL ?>admin/editCategory.php?id=<?= $category['id'] ?>'"
+                            class="btn-edit">Edit</button>
+                        <button
+                            onclick="window.location.href='<?= ROOT_URL ?>admin/deleteCategory.php?id=<?= $category['id'] ?>'"
+                            class="btn-delete">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>Design</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marketing</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Finance</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
+                <?php endwhile ?>
             </tbody>
         </table>
     </main>
@@ -88,4 +82,7 @@ require 'common/header.php';
 </body>
 
 </html>
-<?php require '../common/footer.php'; ?>
+
+<?php
+require '../common/footer.php';
+?>

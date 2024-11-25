@@ -55,6 +55,7 @@ if (!$users) {
 
     <main class="main-content" id="manage-users">
         <h2>Manage Users</h2>
+
         <table class="category-table">
             <thead>
                 <tr>

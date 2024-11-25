@@ -1,30 +1,26 @@
 <?php
+require '../common/header.php';
 
-require 'common/header.php';
+//get back form data if invalid
+$title = $_SESSION['add-category-data']['title'] ?? null;
+
+unset($_SESSION['add-category-data']);
+
 ?>
 
 <main class="container">
     <section class="add-category-section">
         <h1>Add Category</h1>
-        <form id="add-category-form" action="" method="POST">
+        <form id="add-category-form" action="<?= ROOT_URL ?>admin/addCategoryLogic.php" method="POST">
             <div class="form-group">
                 <label for="category-title">Category Title</label>
-                <input type="text" id="category-title" name="category-title" required />
+                <input type="text" id="category-title" name="title" required />
             </div>
-            <div class="form-group">
-                <label for="category-description">Category Description</label>
-                <textarea id="category-description" name="category-description" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Create Category</button>
+            <button type="submit" name="submit" class="submit-btn">Create Category</button>
         </form>
     </section>
 </main>
 
-<script src="/scripts/addCategory.js"></script>
-</body>
-
-</html>
-
 <?php
-  require '../common/footer.php';
+require '../common/footer.php';
 ?>
