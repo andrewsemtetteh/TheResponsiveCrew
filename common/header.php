@@ -22,12 +22,16 @@ if (isset($_SESSION['user-id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles/index.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/blog.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles/portfolio.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles/spotlight.css" />
-    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/blog.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/addCategory.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/dashboard.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles/blogpost.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/createpost.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/createblog.css" />
     <link rel="stylesheet" href="<?= ROOT_URL ?>styles/profile.css" />
-    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/spotlightpost.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/editprofile.css" />
     <link rel="icon" href="<?= ROOT_URL ?>images/icon.png" type="image/x-icon" />
 </head>
 
@@ -71,11 +75,38 @@ if (isset($_SESSION['user-id'])) {
         </header>
 
         <script>
-        document.querySelector("#login-btn").addEventListener("click", function() {
-            window.location.href = "<?= ROOT_URL ?>login.php";
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the avatar element specifically (the circle) and dropdown
+            const avatar = document.querySelector('.navprofile .avatar');
+            const dropdown = document.querySelector('.navprofile-dropdown');
+            let isDropdownOpen = false;
+
+            // Toggle dropdown when clicking the avatar
+            avatar.addEventListener('click', function(e) {
+                e.stopPropagation();
+                isDropdownOpen = !isDropdownOpen;
+
+                if (isDropdownOpen) {
+                    dropdown.classList.add('active');
+                } else {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            // Close dropdown only when clicking outside both the avatar and dropdown
+            document.addEventListener('click', function(e) {
+                const isClickInsideDropdown = dropdown.contains(e.target);
+                const isClickInsideAvatar = avatar.contains(e.target);
+
+                if (!isClickInsideDropdown && !isClickInsideAvatar && isDropdownOpen) {
+                    dropdown.classList.remove('active');
+                    isDropdownOpen = false;
+                }
+            });
+
+            // Prevent clicks inside dropdown from closing it
+            dropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
         </script>
-
-</body>
-
-</html>

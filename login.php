@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'config/constants.php';
 
 // Get back form data if there was a login error

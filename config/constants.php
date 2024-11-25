@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 define ('ROOT_URL', 'http://localhost/TalentSphere/');
 define('DB_HOST','localhost');
 define('DB_USER','responsivecrew');
