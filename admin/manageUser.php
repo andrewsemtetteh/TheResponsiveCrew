@@ -1,6 +1,16 @@
 <?php
-
 require 'common/header.php';
+
+// Fetch users from database but not current user
+$current_admin_id = $_SESSION['user-id'];
+
+$query = "SELECT * FROM users WHERE id != $current_admin_id";
+$users = mysqli_query($connection, $query);
+
+// Check if query was successful
+if (!$users) {
+    die("Query failed: " . mysqli_error($connection));
+}
 ?>
 
 
@@ -24,7 +34,6 @@ require 'common/header.php';
         </a>
 
         <?php if (isset($_SESSION['user_is_admin'])): ?>
-
         <a href="<?= ROOT_URL ?>admin/addUser.php" class="sidebar-section">
             <i class="bx bx-user-plus"></i>
             <h5>Add User</h5>
@@ -56,42 +65,21 @@ require 'common/header.php';
                 </tr>
             </thead>
             <tbody>
+                <?php while($user = mysqli_fetch_assoc($users)) : ?>
                 <tr>
-                    <td>Andrew Sem Tetteh</td>
-                    <td>andrew.tetteh@ashesi.edu.gh</td>
-                    <td>Yes</td>
+                    <td><?= isset($user['fullname']) ? htmlspecialchars($user['fullname']) : 'N/A' ?></td>
+                    <td><?= isset($user['email']) ? htmlspecialchars($user['email']) : 'N/A' ?></td>
+                    <td><?= isset($user['is_admin']) && $user['is_admin'] ? 'Yes' : 'No' ?></td>
                     <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
+                        <button onclick="window.location.href='<?= ROOT_URL ?>admin/editUser.php?id=<?= $user['id'] ?>'"
+                            class="btn-edit">Edit</button>
+                        <button
+                            onclick="window.location.href='<?= ROOT_URL ?>admin/deleteUser.php?id=<?= $user['id'] ?>'"
+                            class="btn-delete">Delete</button>
                     </td>
+
                 </tr>
-                <tr>
-                    <td>Griselda Owusu-Ansah</td>
-                    <td>griselda.ansah@ashesi.edu.gh</td>
-                    <td>No</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Princess Cheryl</td>
-                    <td>princess.cheryl@ashesi.edu.gh</td>
-                    <td>No</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>James Kantamantu-Koomson</td>
-                    <td>james.koomson@ashesi.edu.gh</td>
-                    <td>Yes</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
+                <?php endwhile ?>
             </tbody>
         </table>
     </main>
@@ -101,7 +89,6 @@ require 'common/header.php';
 
 </html>
 
-
 <?php
-  require '../common/footer.php';
+require '../common/footer.php';
 ?>

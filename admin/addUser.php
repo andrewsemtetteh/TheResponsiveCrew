@@ -6,7 +6,8 @@ require 'common/header.php';
 <main class="container">
     <section class="create-post-section">
         <h1>Add User</h1>
-        <form id="create-post-form" action="" enctype="multipart/form-data">
+        <form id="create-post-form" action="<?= ROOT_URL ?>addUserLogic.php" enctype="multipart/form-data"
+            method="POST">
             <div class="form-group">
                 <label for="post-title">Full Name</label>
                 <input type="text" id="fullname" required />
