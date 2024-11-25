@@ -76,6 +76,20 @@ if (isset($_SESSION['user-id'])) {
 
         <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Handle Login button click
+            const loginButton = document.getElementById('login-btn');
+
+            if (loginButton) {
+                loginButton.addEventListener('click', function() {
+                    // Redirect to the sign-up page
+                    window.location.href =
+                        "<?= ROOT_URL ?>register.php"; // Replace with the actual URL of your sign-up page
+                });
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
             // Get the avatar element specifically (the circle) and dropdown
             const avatar = document.querySelector('.navprofile .avatar');
             const dropdown = document.querySelector('.navprofile-dropdown');
