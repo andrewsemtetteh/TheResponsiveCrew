@@ -1,8 +1,6 @@
 <?php
-
 require 'common/header.php';
 ?>
-
 
 <div class="manage-container container">
     <aside class="sidebar">
@@ -22,6 +20,9 @@ require 'common/header.php';
             <i class="bx bx-edit"></i>
             <h5>Manage Blog</h5>
         </a>
+
+        <?php if (isset($_SESSION['user_is_admin'])): ?>
+
         <a href="<?= ROOT_URL ?>admin/addUser.php" class="sidebar-section">
             <i class="bx bx-user-plus"></i>
             <h5>Add User</h5>
@@ -38,6 +39,7 @@ require 'common/header.php';
             <i class="bx bx-category"></i>
             <h5>Manage Category</h5>
         </a>
+        <?php endif; ?>
     </aside>
 
     <main class="main-content" id="manage-category">
@@ -86,7 +88,4 @@ require 'common/header.php';
 </body>
 
 </html>
-
-<?php
-  require '../common/footer.php';
-?>
+<?php require '../common/footer.php'; ?>

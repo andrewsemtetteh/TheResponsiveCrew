@@ -75,7 +75,9 @@ if (empty($fullname)) {
                 mysqli_stmt_bind_param($stmt, "ssss", $fullname, $email, $hashed_password, $profile_name);
                 
                 if (mysqli_stmt_execute($stmt)) {
+                    // Clear registration data
                     unset($_SESSION['register-data']);
+                    // Set success message
                     $_SESSION['register-success'] = "Registration successful. Please log in";
                     header('location: ' . ROOT_URL . 'login.php');
                     die();
@@ -97,3 +99,4 @@ if (isset($_SESSION['register'])) {
     header('location: ' . ROOT_URL . 'register.php');
     die();
 }
+?>
