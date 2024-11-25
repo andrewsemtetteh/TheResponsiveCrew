@@ -1,6 +1,14 @@
 <?php
 require 'config/database.php';
 
+//fetch current user from database
+if (isset($_SESSION['user-id'])) {
+    $id = filter_var($_SESSION['user-id'], FILTER_SANITIZE_NUMBER_INT);
+    $query = "SELECT profile FROM users WHERE id=$id";
+    $result = mysqli_query($connection, $query);
+    $profile = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +48,7 @@ require 'config/database.php';
 
                     <div class="navprofile">
                         <div class="avatar">
-                            <img src="/images/girl.png" alt="profile" />
+                            <img src="<?= ROOT_URL . 'images/' . $profile['profile'] ?>" />
                         </div>
                         <div class="navprofile-dropdown">
                             <a href="<?= ROOT_URL ?>admin/dashboard.php">Dashboard</a>
