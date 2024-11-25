@@ -5,10 +5,6 @@
 <main class="container spotlight-container">
     <section class="spotlight-header">
         <h1>Spotlights</h1>
-        <button class="create-newpost-btn">
-            <i class="bx bx-plus"></i>
-            Create New Post
-        </button>
     </section>
 
     <section class="filter-section">

@@ -38,7 +38,11 @@ require 'config/database.php';
                     <a href="<?= ROOT_URL ?>blog.php">Blogs</a>
                     <a href="<?= ROOT_URL ?>spotlight.php">Spotlight</a>
                 </div>
+
                 <div class="nav-buttons-container">
+
+                    <?php if(isset($_SESSION['user-id'])) : ?>
+
                     <div class="navprofile">
                         <div class="avatar">
                             <img src="/images/girl.png" alt="profile" />
@@ -49,6 +53,15 @@ require 'config/database.php';
                             <a href="<?= ROOT_URL ?>logout.php">Logout</a>
                         </div>
                     </div>
+
+                    <?php else: ?>
+
+                    <div class="auth-buttons">
+                        <button id="login-btn">Login</button>
+                    </div>
+
+                    <?php endif; ?>
+
                 </div>
             </nav>
         </header>

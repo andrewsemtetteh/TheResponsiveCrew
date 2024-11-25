@@ -19,7 +19,7 @@ unset($_SESSION['register-data']);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Talent Sphere - Register</title>
-    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+    <link rel="icon" href="<?= ROOT_URL ?>images/icon.png" type="image/x-icon" />
     <style>
     .alert_message {
         padding: 10px;
@@ -47,36 +47,33 @@ unset($_SESSION['register-data']);
         border: 1px solid green;
     }
     </style>
-    <link rel="stylesheet" href="./styles/authentication.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/authentication.css" />
 </head>
 
 <body>
     <div class="container">
         <h2>Register</h2>
 
-        <?php
-            if (isset($_SESSION['register'])) {
-                $message_class = strpos($_SESSION['register'], 'successful') !== false ? 'success' : 'error';
-        ?>
-        <div class="alert_message <?= $message_class ?>">
-            <p><?= $_SESSION['register'] ?></p>
+        <?php if (isset($_SESSION['register'])) : ?>
+        <div class="alert_message error">
+            <p>
+                <?= $_SESSION['register'];
+                    unset($_SESSION['register']);
+                    ?>
+            </p>
         </div>
-        <?php
-                unset($_SESSION['register']);
-            }
-        ?>
+        <?php endif; ?>
 
         <form id="registerForm" action="<?= ROOT_URL ?>registerLogic.php" method="POST" enctype="multipart/form-data">
-            <input type="text" id="fullname" name="fullname" value="<?= htmlspecialchars($fullname ?? '') ?>"
+            <input type="text" id="fullname" name="fullname" value="<?= $fullname ?>"
                 placeholder="Enter your full name" />
-            <input type="email" id="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>"
-                placeholder="Enter your Ashesi email" />
-            <input type="password" id="password" name="createpassword"
-                value="<?= htmlspecialchars($createpassword ?? '') ?>" placeholder="Enter your password" />
-            <input type="password" id="passwordConfirm" name="confirmpassword"
-                value="<?= htmlspecialchars($confirmpassword ?? '') ?>" placeholder="Confirm your password" />
+            <input type="email" id="email" name="email" value="<?= $email ?>" placeholder="Enter your Ashesi email" />
+            <input type="password" id="password" name="createpassword" value="<?= $createpassword ?>"
+                placeholder="Enter your password" />
+            <input type="password" id="passwordConfirm" name="confirmpassword" value="<?= $confirmpassword ?>"
+                placeholder="Confirm your password" />
             <div class="form-control">
-                <label for="avatar">Profile Picture</label>
+                <label for="profile">Profile Picture</label>
                 <input type="file" id="profilePicture" name="profile" accept="image/*" />
             </div>
             <button type="submit" name="submit">Register</button>

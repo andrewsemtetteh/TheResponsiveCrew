@@ -14,13 +14,8 @@ $createpassword = $_POST['createpassword'];
 $confirmpassword = $_POST['confirmpassword'];
 $profile = $_FILES['profile'] ?? null;
 
-// Initialize session data for potential error redirect
-$_SESSION['register-data'] = [
-    'fullname' => $fullname,
-    'email' => $email,
-    'createpassword' => $createpassword,
-    'confirmpassword' => $confirmpassword
-];
+// Store form data in case of validation errors
+$_SESSION['register-data'] = $_POST;
 
 // Validation checks
 if (empty($fullname)) {
@@ -33,63 +28,62 @@ if (empty($fullname)) {
     $_SESSION['register'] = 'Password should be at least 8 characters';
 } elseif ($createpassword !== $confirmpassword) {
     $_SESSION['register'] = 'Passwords do not match';
-} elseif (!$profile || !$profile['name']) {
+} elseif (!$profile['name']) {
     $_SESSION['register'] = 'Please add a profile picture';
 } else {
+    // Hash the password
+    $hashed_password = password_hash($createpassword, PASSWORD_DEFAULT);
+
     // Check if email already exists
-    $stmt = mysqli_prepare($connection, "SELECT email FROM users WHERE email = ?");
+    $user_check_query = "SELECT * FROM users WHERE email=?";
+    $stmt = mysqli_prepare($connection, $user_check_query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['register'] = "Email already exists!";
+    $user_check_result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($user_check_result) > 0) {
+        $_SESSION['register'] = "Email already exists";
     } else {
-        // Process profile picture
-        $allowed_extensions = ['png', 'jpg', 'jpeg'];
+        // Work on profile picture
         $time = time();
-        $profile_name = $time . basename($profile['name']);
+        $profile_name = $time . $profile['name'];
         $profile_tmp_name = $profile['tmp_name'];
         $profile_destination_path = 'images/' . $profile_name;
-        $profile_extension = strtolower(pathinfo($profile_name, PATHINFO_EXTENSION));
 
-        if (!in_array($profile_extension, $allowed_extensions)) {
-            $_SESSION['register'] = "File should be png, jpg, or jpeg";
-        } elseif ($profile['size'] > 1000000) {
-            $_SESSION['register'] = "File size too big. Should be less than 1mb";
-        } else {
-            // Create images directory if it doesn't exist
-            if (!is_dir('images')) {
-                mkdir('images', 0777, true);
-            }
+        // Make sure file is an image
+        $allowed_files = ['png', 'jpg', 'jpeg'];
+        $extension = explode('.', $profile_name);
+        $extension = strtolower(end($extension));
 
-            // Upload profile picture
-            if (move_uploaded_file($profile_tmp_name, $profile_destination_path)) {
-                // Hash password
-                $hashed_password = password_hash($createpassword, PASSWORD_DEFAULT);
+        if (in_array($extension, $allowed_files)) {
+            // Make sure file size is not more than 1mb
+            if ($profile['size'] < 1000000) {
+                // Upload profile picture
+                $upload_result = move_uploaded_file($profile_tmp_name, $profile_destination_path);
 
-                // Insert new user
-                $stmt = mysqli_prepare($connection, 
-                    "INSERT INTO users (fullname, email, password, profile, is_admin) VALUES (?, ?, ?, ?, 0)"
-                );
-                mysqli_stmt_bind_param($stmt, "ssss", $fullname, $email, $hashed_password, $profile_name);
-                
-                if (mysqli_stmt_execute($stmt)) {
-                    // Clear registration data
-                    unset($_SESSION['register-data']);
-                    // Set success message
-                    $_SESSION['register-success'] = "Registration successful. Please log in";
-                    header('location: ' . ROOT_URL . 'login.php');
-                    die();
-                } else {
-                    if (file_exists($profile_destination_path)) {
-                        unlink($profile_destination_path);
+                if ($upload_result) {
+                    // Insert new user into users table
+                    $insert_user_query = "INSERT INTO users (fullname, email, password, profile, is_admin) VALUES (?, ?, ?, ?, 0)";
+                    $stmt = mysqli_prepare($connection, $insert_user_query);
+                    mysqli_stmt_bind_param($stmt, "ssss", $fullname, $email, $hashed_password, $profile_name);
+                    
+                    if (mysqli_stmt_execute($stmt)) {
+                        // Clear session data and redirect to login
+                        unset($_SESSION['register-data']);
+                        $_SESSION['register-success'] = "Registration successful. Please log in";
+                        header('location: ' . ROOT_URL . 'login.php');
+                        die();
+                    } else {
+                        $_SESSION['register'] = "Database error occurred. Please try again.";
                     }
-                    $_SESSION['register'] = "Registration failed. Please try again";
+                } else {
+                    $_SESSION['register'] = "Failed to upload profile picture. Please try again.";
                 }
             } else {
-                $_SESSION['register'] = "Failed to upload profile picture";
+                $_SESSION['register'] = 'File size too big. Should be less than 1mb';
             }
+        } else {
+            $_SESSION['register'] = 'File should be png, jpg, or jpeg';
         }
     }
 }
@@ -99,4 +93,3 @@ if (isset($_SESSION['register'])) {
     header('location: ' . ROOT_URL . 'register.php');
     die();
 }
-?>

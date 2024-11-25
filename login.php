@@ -4,6 +4,7 @@ require 'config/constants.php';
 
 // Get back form data if there was a login error
 $email = $_SESSION['login-data']['email'] ?? null;
+$password = $_SESSION['login-data']['password'] ?? null;
 
 // Delete login data session
 unset($_SESSION['login-data']);
@@ -16,7 +17,7 @@ unset($_SESSION['login-data']);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Talent Sphere - Login</title>
-    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+    <link rel="icon" href="<?= ROOT_URL ?>images/icon.png" type="image/x-icon" />
     <style>
     .alert_message {
         padding: 10px;
@@ -44,40 +45,38 @@ unset($_SESSION['login-data']);
         border: 1px solid green;
     }
     </style>
-    <link rel="stylesheet" href="./styles/authentication.css" />
+    <link rel="stylesheet" href="<?= ROOT_URL ?>styles/authentication.css" />
 </head>
 
 <body>
     <div class="container">
         <h2>Login</h2>
 
-        <?php
-            // Show registration success message if it exists
-            if (isset($_SESSION['login-success'])) {
-        ?>
+        <?php if (isset($_SESSION['register-success'])) : ?>
         <div class="alert_message success">
-            <p><?= $_SESSION['login-success'] ?></p>
+            <p>
+                <?= $_SESSION['register-success'];
+                    unset($_SESSION['register-success']);
+                    ?>
+            </p>
         </div>
-        <?php
-                unset($_SESSION['login-success']);
-            }
+        <?php endif; ?>
 
-            // Show login error message if it exists
-            if (isset($_SESSION['login'])) {
-                $message_class = strpos($_SESSION['login'], 'successful') !== false ? 'success' : 'error';
-        ?>
-        <div class="alert_message <?= $message_class ?>">
-            <p><?= $_SESSION['login'] ?></p>
+        <?php if (isset($_SESSION['login'])) : ?>
+        <div class="alert_message error">
+            <p>
+                <?= $_SESSION['login'];
+                    unset($_SESSION['login']);
+                    ?>
+            </p>
         </div>
-        <?php
-                unset($_SESSION['login']);
-            }
-        ?>
+        <?php endif; ?>
 
         <form id="loginForm" action="<?= ROOT_URL ?>loginLogic.php" method="POST">
             <input type="email" id="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>"
-                placeholder="Enter your Ashesi email" />
-            <input type="password" id="password" name="password" placeholder="Enter your password" />
+                placeholder="Enter your Ashesi email" required />
+            <input type="password" id="password" name="password" value="<?= htmlspecialchars($password ?? '') ?>"
+                placeholder="Enter your password" required />
             <button type="submit" name="submit">Login</button>
             <div class="error-messages" id="errorMessages"></div>
         </form>
