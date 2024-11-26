@@ -191,6 +191,32 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.alert_message {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  width: 80%;
+  text-align: center;
+}
+
+.alert_message p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.alert_message.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
+  border: 1px solid red;
+}
+
+.alert_message.success {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: green;
+  border: 1px solid green;
+}
+
 /* Footer Styles - - for all pages */
 footer {
   background-color: var(--bg-color);

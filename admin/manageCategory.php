@@ -31,10 +31,6 @@ if (!$categories) {
         </a>
 
         <?php if (isset($_SESSION['user_is_admin'])): ?>
-        <a href="<?= ROOT_URL ?>admin/addUser.php" class="sidebar-section">
-            <i class="bx bx-user-plus"></i>
-            <h5>Add User</h5>
-        </a>
         <a href="<?= ROOT_URL ?>admin/manageUser.php" class="sidebar-section">
             <i class="bx bx-user-check"></i>
             <h5>Manage User</h5>

@@ -1,5 +1,16 @@
 <?php
-  require 'common\header.php';
+require 'common/header.php';
+
+// Fetch posts from the blogs table with user profile image
+$query = "SELECT b.*, 
+                 c.title AS category_title, 
+                 u.fullname AS author_name, 
+                 u.profile AS author_profile
+          FROM blogs b
+          JOIN categories c ON b.category_id = c.id
+          JOIN users u ON b.author_id = u.id
+          ORDER BY b.date_time DESC";
+$result = mysqli_query($connection, $query);
 ?>
 
 <div class="search-container">
@@ -17,102 +28,57 @@
                 <button class="category-btn" data-category="creative-writing">
                     Creative Writing
                 </button>
-                <button class="category-btn" data-category="reflections">
-                    Reflections
-                </button>
-                <button class="category-btn" data-category="art-stories">
-                    Art Stories
-                </button>
-                <button class="category-btn" data-category="tutorials">
-                    Tutorials
-                </button>
             </div>
         </div>
     </div>
 
     <div class="blog-feed">
+        <?php 
+        // Check if there are any blogs
+        if (mysqli_num_rows($result) > 0) {
+            // Loop through the blogs
+            while($blog = mysqli_fetch_assoc($result)) : 
+        ?>
         <article class="blog-post">
             <div class="post-image">
-                <img src="/images/africanfood.jpg" alt="Blog Post" />
+                <img src="./images/<?= htmlspecialchars($blog['thumbnail']) ?>"
+                    alt="<?= htmlspecialchars($blog['title']) ?>" />
             </div>
             <div class="post-content">
                 <div class="post-header">
-                    <div class="post-category">Creative Writing</div>
+                    <div class="post-category"><?= htmlspecialchars($blog['category_title']) ?></div>
                 </div>
-                <h2 class="post-title">The Art of Creative Expression</h2>
+                <h2 class="post-title"><?= htmlspecialchars($blog['title']) ?></h2>
                 <div class="post-meta">
                     <div class="author-info">
-                        <img src="/images/boy.png" alt="Author" class="author-avatar" />
-                        <span class="author-name">Andrew Sem Tetteh</span>
+                        <?php 
+                            // Check if profile image exists, otherwise use default
+                            $profile_image = !empty($blog['author_profile']) 
+                                ? htmlspecialchars($blog['author_profile'])
+                                : 'boy.png'; 
+                            ?>
+                        <img src="./images/<?= $profile_image ?>" alt="<?= htmlspecialchars($blog['author_name']) ?>"
+                            class="author-avatar" />
+                        <span class="author-name"><?= htmlspecialchars($blog['author_name']) ?></span>
                     </div>
-                    <span class="post-date">March 15, 2024</span>
+                    <span class="post-date"><?= date("M d, Y - H:i", strtotime($blog['date_time'])) ?></span>
                 </div>
                 <p class="post-excerpt">
-                    Exploring the boundless possibilities of creative expression
-                    through various mediums and perspectives. Discover how different
-                    artists interpret and convey their unique visions...
+                    <?= htmlspecialchars($blog['summary']) ?>
                 </p>
-                <a href="/pages/blogpost.html" class="read-more">Read More</a>
+                <a href="<?= ROOT_URL ?>blogpost.php?id=<?= $blog['id'] ?>" class="read-more">Read More</a>
             </div>
         </article>
-
-        <article class="blog-post">
-            <div class="post-image">
-                <img src="/images/beats.jpg" alt="Blog Post" />
-            </div>
-            <div class="post-content">
-                <div class="post-header">
-                    <div class="post-category">Art Stories</div>
-                </div>
-                <h2 class="post-title">Journey Through Colors</h2>
-                <div class="post-meta">
-                    <div class="author-info">
-                        <img src="/images/girl.png" alt="Author" class="author-avatar" />
-                        <span class="author-name">Princess Cheryl</span>
-                    </div>
-                    <span class="post-date">March 14, 2024</span>
-                </div>
-                <p class="post-excerpt">
-                    A personal narrative about finding inspiration in everyday colors
-                    and translating them into art. Experience the transformation of
-                    ordinary moments into extraordinary creations...
-                </p>
-                <a href="/pages/blogpost.html" class="read-more">Read More</a>
-            </div>
-        </article>
-
-        <article class="blog-post">
-            <div class="post-image">
-                <img src="/images/background.jpg" alt="Blog Post" />
-            </div>
-            <div class="post-content">
-                <div class="post-header">
-                    <div class="post-category">Tutorials</div>
-                </div>
-                <h2 class="post-title">Mastering Digital Art Techniques</h2>
-                <div class="post-meta">
-                    <div class="author-info">
-                        <img src="/images/boy.png" alt="Author" class="author-avatar" />
-                        <span class="author-name">Griselda Owusu-Ansah<span>
-                    </div>
-                    <span class="post-date">March 10, 2024</span>
-                </div>
-                <p class="post-excerpt">
-                    A comprehensive guide to advanced digital art techniques, tools,
-                    and creative strategies for aspiring digital artists...
-                </p>
-                <a href="/pages/blogpost.html" class="read-more">Read More</a>
-            </div>
-        </article>
+        <?php 
+            endwhile; 
+        } else {
+            // Display a message if no blogs are found
+            echo "<p>No blog posts found.</p>";
+        }
+        ?>
     </div>
 </main>
 
-<script src="/scripts/script.js"></script>
-</body>
-
-</html>
-
 <?php
-include 'common/footer.php'
-
+include 'common/footer.php';
 ?>

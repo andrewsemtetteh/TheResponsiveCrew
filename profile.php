@@ -111,14 +111,12 @@
     </div>
 </div>
 
-<script src="/scripts/script.js"></script>
-
 <script>
 // redirection to the edit profile page
 document
     .querySelector("#editProfileBtn")
     .addEventListener("click", function() {
-        window.location.href = "/pages/editprofile.html";
+        window.location.href = "<?= ROOT_URL ?>admin/editprofile.php";
     });
 </script>
 </body>

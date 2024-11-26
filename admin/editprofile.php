@@ -78,8 +78,8 @@ Creative professional with a passion for design and photography. Showcasing my b
                         <label>Social Links</label>
                         <div class="social-links-container">
                             <div class="social-input">
-                                <i class="bx bx-envelope"></i>
-                                <input type="email" placeholder="Email address" />
+                                <i class="bx  bx-envelope"></i>
+                                <input type="url" placeholder="Email address" />
                             </div>
                             <div class="social-input">
                                 <i class="bx bxl-linkedin"></i>
@@ -107,8 +107,6 @@ Creative professional with a passion for design and photography. Showcasing my b
         </form>
     </section>
 </main>
-
-<script src="/scripts/script.js"></script>
 
 <script>
 const profileInput = document.getElementById("profileImage");

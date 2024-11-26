@@ -1,6 +1,15 @@
 <?php
 
 require 'common/header.php';
+
+// Fetch current user's posts from the database with prepared statement
+$current_user_id = $_SESSION['user-id'];
+$query = "SELECT id, title, media FROM posts WHERE author_id = ? ORDER BY id DESC"; 
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "i", $current_user_id);
+mysqli_stmt_execute($stmt);
+$posts = mysqli_stmt_get_result($stmt);
+?>
 ?>
 
 <div class="manage-container container">
@@ -24,10 +33,6 @@ require 'common/header.php';
 
         <?php if (isset($_SESSION['user_is_admin'])): ?>
 
-        <a href="<?= ROOT_URL ?>admin/addUser.php" class="sidebar-section">
-            <i class="bx bx-user-plus"></i>
-            <h5>Add User</h5>
-        </a>
         <a href="<?= ROOT_URL ?>admin/manageUser.php" class="sidebar-section">
             <i class="bx bx-user-check"></i>
             <h5>Manage User</h5>
@@ -43,50 +48,45 @@ require 'common/header.php';
         <?php endif; ?>
     </aside>
 
-    <main class="main-content" id="manage-blogs">
+    <main class="main-content" id="manage-posts">
         <h2>Manage Spotlights</h2>
         <table class="category-table">
             <thead>
                 <tr>
                     <th>Title</th>
+                    <!-- <th>Media</th> -->
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                <?php while($post = mysqli_fetch_assoc($posts)) : ?>
                 <tr>
-                    <td>10 Essential Tips for Remote Work Success</td>
+                    <td><?= htmlspecialchars($post['title']) ?></td>
+                    <!-- <td>
+                        <?php 
+                        $media = $post['media'];
+                        $extension = strtolower(pathinfo($media, PATHINFO_EXTENSION));
+                        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+                            echo "<img src='" . ROOT_URL . "uploads/" . $media . "' alt='Media' style='max-width: 100px; max-height: 100px;'>";
+                        } else {
+                            echo htmlspecialchars($media);
+                        }
+                        ?>
+                    </td> -->
                     <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
+                        <button onclick="window.location.href='<?= ROOT_URL ?>admin/editPost.php?id=<?= $post['id'] ?>'"
+                            class="btn-edit">Edit</button>
+                        <button
+                            onclick="window.location.href='<?= ROOT_URL ?>admin/deletePost.php?id=<?= $post['id'] ?>'"
+                            class="btn-delete">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>The Impact of AI on Modern Business</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Building a Strong Personal Brand Online</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Sustainable Business Practices for 2024</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
     </main>
 </div>
-</body>
 
 <?php
-  require '../common/footer.php';
+require '../common/footer.php';
 ?>
