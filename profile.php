@@ -1,65 +1,72 @@
 <?php
   require 'common\header.php';
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['user-id'])) {
+    header('location: ' . ROOT_URL . 'login.php');
+    die();
+}
+
+// Fetch user details from database
+$user_id = $_SESSION['user-id'];
+$query = "SELECT * FROM users WHERE id = ?";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "i", $user_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$user = mysqli_fetch_assoc($result);
 ?>
 
 <main class="container mx-auto p-4 space-y-8">
     <section class="profile-section">
         <div class="profile-container">
             <div class="profile-image-container">
-                <img src="/images/boy.png" alt="Profile Picture" class="profile-image" />
+                <?php if($user && $user['profile']): ?>
+                <img src="<?= ROOT_URL ?>images/<?= htmlspecialchars($user['profile']) ?>" alt="Profile Picture"
+                    class="profile-image" />
+                <?php else: ?>
+                <img src="/images/boy.png" alt="Default Profile Picture" class="profile-image" />
+                <?php endif; ?>
             </div>
 
             <div class="profile-content">
                 <div class="profile-header">
                     <div class="profile-info">
                         <div class="name-and-actions">
-                            <h1 class="profile-name">Andrew Sem Tetteh</h1>
+                            <h1 class="profile-name">
+                                <?= htmlspecialchars($user['fullname']) ?>
+                            </h1>
                             <div class="profile-actions">
+                                <?php if(isset($_SESSION['user-id'])): ?>
                                 <button class="btn-outline" id="editProfileBtn">
                                     <i class="bx bx-edit"></i>
                                     Edit Profile
                                 </button>
+                                <?php else: ?>
                                 <button class="book-btn" id="bookingBtn">
                                     <i class="bx bx-calendar"></i>
                                     Book Me
                                 </button>
+                                <?php endif; ?>
                             </div>
                         </div>
-                        <span class="creator-type">Web Developer</span>
+                        <span class="creator-type">Expertise (Not updated)</span>
                     </div>
                 </div>
 
-                <p class="profile-bio">
-                    Creative professional with a passion for design and photography.
-                    Showcasing my best work in this portfolio.
-                </p>
+                <p class="profile-bio">Bio (Not updated)</p>
 
                 <div class="skills-section">
                     <h3>Skills</h3>
                     <div class="skills-container">
-                        <span class="skill-tag">UI Design</span>
-                        <span class="skill-tag">Digital Art</span>
-                        <span class="skill-tag">Illustration</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Adobe Creative Suite</span>
+                        <p>Skills not updated</p>
                     </div>
                 </div>
 
                 <div>
                     <h3>My Socials</h3>
                     <div class="contact-links">
-                        <a href="#" class="contact-link">
-                            <i class="bx bx-envelope"></i> Email Me
-                        </a>
-                        <a href="#" class="contact-link">
-                            <i class="bx bxl-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="#" class="contact-link">
-                            <i class="bx bxl-instagram"></i> Instagram
-                        </a>
-                        <a href="#" class="contact-link">
-                            <i class="bx bxl-whatsapp"></i> WhatsApp
-                        </a>
+                        <p>Socials not updated</p>
                     </div>
                 </div>
             </div>
@@ -69,20 +76,7 @@
     <section class="featured-works">
         <h2>My Works</h2>
         <div class="works-grid">
-            <div class="work-card">
-                <img src="/images/bg.webp" alt="Project 1" />
-                <div class="work-info">
-                    <h3>Project Title</h3>
-                    <p>Project description goes here</p>
-                </div>
-            </div>
-            <div class="work-card">
-                <img src="/images/africanfood.jpg" alt="Project 2" />
-                <div class="work-info">
-                    <h3>Project Title</h3>
-                    <p>Project description goes here</p>
-                </div>
-            </div>
+            <p>Works not updated</p>
         </div>
     </section>
 </main>
@@ -94,37 +88,20 @@
             <button class="close-modal">&times;</button>
         </div>
         <form class="booking-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name" />
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your email" />
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Tell me about your project"></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Book</button>
+            <p>Booking form not updated</p>
         </form>
     </div>
 </div>
 
 <script>
-// redirection to the edit profile page
+// Redirection to the edit profile page
 document
     .querySelector("#editProfileBtn")
     .addEventListener("click", function() {
         window.location.href = "<?= ROOT_URL ?>admin/editprofile.php";
     });
 </script>
-</body>
-
-</html>
-
 
 <?php
 include 'common/footer.php'
-
 ?>

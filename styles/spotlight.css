@@ -14,6 +14,25 @@
   font-size: 2rem;
 }
 
+.read-more {
+  display: inline-block;
+  color: var(--btn-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}
+
+.read-more:hover {
+  color: var(--bg-accent);
+}
+
+.gallery-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .create-newpost-btn {
   display: flex;
   align-items: center;
@@ -29,45 +48,6 @@
 
 .create-newpost-btn:hover {
   background-color: var(--bg-accent);
-}
-
-.filter-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.search-bar {
-  display: flex;
-  gap: 0.5rem;
-  flex: 1;
-  max-width: 400px;
-}
-
-.search-bar input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 1px solid var(--border-dark);
-  border-radius: 4px;
-  background-color: var(--bg-dark);
-  color: var(--text-color);
-}
-
-.filter-options {
-  display: flex;
-  gap: 1rem;
-}
-
-.filter-options select {
-  padding: 0.75rem;
-  border: 1px solid var(--border-dark);
-  border-radius: 4px;
-  background-color: var(--bg-dark);
-  color: var(--text-color);
-  cursor: pointer;
 }
 
 .gallery-grid {
@@ -178,4 +158,22 @@
 
 .item-stats i {
   font-size: 1.1rem;
+}
+
+.creator-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.creator-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-meta {
+  color: white;
+  font-size: 0.8rem;
 }
