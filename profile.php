@@ -15,6 +15,18 @@ mysqli_stmt_bind_param($stmt, "i", $user_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $user = mysqli_fetch_assoc($result);
+
+// Fetch portfolio details
+$portfolio_query = "SELECT * FROM portfolio WHERE author_id = ?";
+$stmt = mysqli_prepare($connection, $portfolio_query);
+mysqli_stmt_bind_param($stmt, "i", $user_id);
+mysqli_stmt_execute($stmt);
+$portfolio_result = mysqli_stmt_get_result($stmt);
+$portfolio = mysqli_fetch_assoc($portfolio_result);
+
+// Prepare skills and socials if portfolio exists
+$skills = $portfolio ? json_decode($portfolio['skills'], true) : [];
+$socials = $portfolio ? json_decode($portfolio['socials'], true) : [];
 ?>
 
 <main class="container mx-auto p-4 space-y-8">
@@ -37,7 +49,9 @@ $user = mysqli_fetch_assoc($result);
                                 <?= htmlspecialchars($user['fullname']) ?>
                             </h1>
                             <div class="profile-actions">
-                                <?php if(isset($_SESSION['user-id'])): ?>
+                                <?php 
+                                // Check if the logged-in user is the profile owner
+                                if(isset($_SESSION['user-id']) && $_SESSION['user-id'] == $user_id): ?>
                                 <button class="btn-outline" id="editProfileBtn">
                                     <i class="bx bx-edit"></i>
                                     Edit Profile
@@ -50,23 +64,51 @@ $user = mysqli_fetch_assoc($result);
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <span class="creator-type">Expertise (Not updated)</span>
+                        <span class="creator-type">
+                            <?= $portfolio ? htmlspecialchars(ucfirst($portfolio['creator_type'])) : 'Expertise Not Updated' ?>
+                        </span>
                     </div>
                 </div>
 
-                <p class="profile-bio">Bio (Not updated)</p>
+                <p class="profile-bio">
+                    <?= $portfolio ? htmlspecialchars($portfolio['bio']) : 'Bio Not Updated' ?>
+                </p>
 
                 <div class="skills-section">
                     <h3>Skills</h3>
                     <div class="skills-container">
-                        <p>Skills not updated</p>
+                        <?php if (!empty($skills)): ?>
+                        <?php foreach ($skills as $skill): ?>
+                        <span class="skill-tag"><?= htmlspecialchars($skill) ?></span>
+                        <?php endforeach; ?>
+                        <?php else: ?>
+                        <p>No skills added</p>
+                        <?php endif; ?>
                     </div>
                 </div>
 
                 <div>
                     <h3>My Socials</h3>
                     <div class="contact-links">
-                        <p>Socials not updated</p>
+                        <?php if (!empty($socials)): ?>
+                        <?php if (!empty($socials['linkedin'])): ?>
+                        <a href="<?= htmlspecialchars($socials['linkedin']) ?>" target="_blank">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                        <?php endif; ?>
+                        <?php if (!empty($socials['github'])): ?>
+                        <a href="<?= htmlspecialchars($socials['github']) ?>" target="_blank">
+                            <i class="bx bxl-github"></i>
+                        </a>
+                        <?php endif; ?>
+                        <?php if (!empty($socials['twitter'])): ?>
+                        <a href="<?= htmlspecialchars($socials['twitter']) ?>" target="_blank">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <?php endif; ?>
+                        <?php else: ?>
+                        <p>No social links added</p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -94,12 +136,27 @@ $user = mysqli_fetch_assoc($result);
 </div>
 
 <script>
-// Redirection to the edit profile page
-document
-    .querySelector("#editProfileBtn")
-    .addEventListener("click", function() {
+// Only add event listener for edit profile if the button exists
+const editProfileBtn = document.querySelector("#editProfileBtn");
+if (editProfileBtn) {
+    editProfileBtn.addEventListener("click", function() {
         window.location.href = "<?= ROOT_URL ?>admin/editprofile.php";
     });
+}
+
+// Optional: Add event listener for booking button if needed
+const bookingBtn = document.querySelector("#bookingBtn");
+if (bookingBtn) {
+    bookingBtn.addEventListener("click", function() {
+        // Add booking modal logic here if required
+        document.getElementById("bookingModal").style.display = "block";
+    });
+
+    // Close modal functionality
+    document.querySelector(".close-modal").addEventListener("click", function() {
+        document.getElementById("bookingModal").style.display = "none";
+    });
+}
 </script>
 
 <?php

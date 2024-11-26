@@ -73,9 +73,9 @@ unset($_SESSION['login-data']);
 
         <form id="loginForm" action="<?= ROOT_URL ?>loginLogic.php" method="POST">
             <input type="email" id="email" name="email" value="<?= htmlspecialchars($email ?? '') ?>"
-                placeholder="Enter your Ashesi email" required />
+                placeholder="Enter your Ashesi email" />
             <input type="password" id="password" name="password" value="<?= htmlspecialchars($password ?? '') ?>"
-                placeholder="Enter your password" required />
+                placeholder="Enter your password" />
             <button type="submit" name="submit">Login</button>
             <div class="error-messages" id="errorMessages"></div>
         </form>
